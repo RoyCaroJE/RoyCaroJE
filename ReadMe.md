@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on small projects for my portfolio<br>🌱 I’m currently learning React and CSS<br>📃 I'm currently writing a paper for 2024 ICWE Workshop<br>⚡ Fun fact: Your brain is constantly eating itself.
+🔭 I’m currently working on small projects for my portfolio<br>🌱 I’m currently learning React and CSS<br>📃 I'm currently writing a paper for 2025 ICWE Workshop<br>⚡ Fun fact: Your brain is constantly eating itself.
 
 
 ## 🌐 Socials:
