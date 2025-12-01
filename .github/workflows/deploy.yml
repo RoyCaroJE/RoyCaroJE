@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    if: github.actor == 'CaroyEdu'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
