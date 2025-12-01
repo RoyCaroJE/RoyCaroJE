@@ -1,13 +1,16 @@
-name: Validate Feature Branch Build
+name: Validate Build on PR
 
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
     branches:
-      - "feature/**"
-      - "bugfix/**"
+      - main
+    paths-ignore:
+      - "**/*.md"
 
 jobs:
   build:
+    if: startsWith(github.head_ref, 'feature/') || startsWith(github.head_ref, 'bugfix/')
     runs-on: ubuntu-latest
 
     steps:
