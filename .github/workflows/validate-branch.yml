@@ -1,0 +1,29 @@
+name: Validate Build on PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+    paths-ignore:
+      - "**/*.md"
+
+jobs:
+  build:
+    if: startsWith(github.head_ref, 'feature/') || startsWith(github.head_ref, 'bugfix/')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run build
+        run: npm run build
