@@ -1,7 +1,9 @@
-import { Container } from "@mui/material";
+import { Container, Divider, Stack } from "@mui/material";
 import AppBar from "./components/AppBar";
 import Experience from "./components/Experience";
 import Presentation from "./components/Presentation";
+import MyWork from "./components/MyWork";
+import Contact from "./components/Contact";
 
 interface AppProps {
   toggleTheme: () => void;
@@ -13,8 +15,12 @@ function Home({ toggleTheme, isDark }: AppProps) {
     <>
       <AppBar toggleTheme={toggleTheme} isDark={isDark} />
       <Container>
-        <Presentation />
-        <Experience />
+        <Stack divider={<Divider />} spacing={2}>
+          <Presentation />
+          <Experience />
+          <MyWork />
+          <Contact />
+        </Stack>
       </Container>
     </>
   );

@@ -10,6 +10,7 @@ function Presentation() {
       container
       sx={{
         paddingTop: { xs: 2, md: 8 },
+        paddingBottom: { xs: 4, md: 8 },
       }}
     >
       <Grid
