@@ -34,7 +34,7 @@ function Presentation() {
         />
       </Grid>
       <Grid size={{ xs: 12, md: 8 }} alignItems="center">
-        <Box sx={{ paddingLeft: 5 }}>
+        <Box paddingLeft={{ xs: 0, md: 5 }}>
           <Typography
             variant="h2"
             fontWeight={800}

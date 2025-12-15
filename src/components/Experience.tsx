@@ -1,8 +1,17 @@
-import { Grid, Stack, Typography } from "@mui/material";
+import {
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import JobExperienceCard from "./JobExperienceCard";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 function Experience() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid container direction="column" spacing={4}>
       <Typography
@@ -17,11 +26,11 @@ function Experience() {
         Experience
       </Typography>
       <Stack
-        direction="row"
-        divider={<ChevronRightIcon />}
-        spacing={4}
+        direction={{ xs: "column", md: "row" }}
+        divider={isMobile ? <ArrowDownwardIcon /> : <ArrowForwardIcon />}
+        spacing={2}
         sx={{
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
         }}
       >
