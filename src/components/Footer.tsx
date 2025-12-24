@@ -17,7 +17,7 @@ function Footer() {
       sx={{
         borderTop: "1px solid",
         borderColor: "divider",
-        bgcolor: "background.paper",
+        bgcolor: "primary.dark",
         py: 2,
         px: 2,
       }}
@@ -62,7 +62,9 @@ function Footer() {
               textTransform: "none",
               borderRadius: 2,
               boxShadow: "none",
+              backgroundColor: "secondary.main",
               "&:hover": {
+                backgroundColor: "secondary.light",
                 boxShadow: 2,
               },
             }}

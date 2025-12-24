@@ -13,8 +13,12 @@ interface AppProps {
 
 export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "background.default" }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "primary.dark" }}
+        enableColorOnDark
+      >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", gap: 2 }}>
             <img src="./logo.svg" width="25" />
@@ -22,8 +26,25 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
               Jean Edouard Roy Caro
             </Typography>
           </Box>
-          <Button color="inherit" onClick={() => toggleTheme()}>
-            {!isDark ? <LightModeIcon /> : <DarkModeIcon />}
+          <Button
+            color="inherit"
+            onClick={toggleTheme}
+            sx={{
+              minWidth: 40,
+              transition: "transform 0.3s ease",
+              "&:hover svg": {
+                transform: "rotate(20deg) scale(1.2)",
+              },
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                transition: "transform 0.3s ease",
+              }}
+            >
+              {!isDark ? <LightModeIcon /> : <DarkModeIcon />}
+            </Box>
           </Button>
         </Toolbar>
       </AppBar>

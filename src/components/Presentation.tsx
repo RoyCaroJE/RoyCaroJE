@@ -50,13 +50,30 @@ function Presentation() {
           <Typography
             variant="h3"
             fontWeight={400}
-            sx={{
-              mt: 1,
-              color: "text.secondary",
-            }}
+            sx={{ mt: 1, color: "text.secondary" }}
           >
-            Clean Code. Good Vibes.
+            Clean Code.{" "}
+            <Box
+              component="span"
+              sx={{
+                color: "secondary.main",
+                fontWeight: 600,
+                display: "inline-block",
+                animation: "vibes 4s ease-in-out infinite",
+                "@keyframes vibes": {
+                  "0%": { transform: "translateY(0)" },
+                  "25%": { transform: "translateY(-4px)" },
+                  "50%": { transform: "translateY(2px)" },
+                  "75%": { transform: "translateY(-2px)" },
+                  "100%": { transform: "translateY(0)" },
+                },
+                willChange: "transform",
+              }}
+            >
+              Good Vibes.
+            </Box>
           </Typography>
+
           <Typography
             variant="body1"
             sx={{
