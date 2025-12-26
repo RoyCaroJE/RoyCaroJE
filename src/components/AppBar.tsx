@@ -21,7 +21,11 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", gap: 2 }}>
-            <img src="./logo.svg" width="25" />
+            {!isDark ? (
+              <img src="./logo_black.svg" width="25" />
+            ) : (
+              <img src="./logo_white.svg" width="25" />
+            )}
             <Typography sx={{ fontWeight: 700 }}>
               Jean Edouard Roy Caro
             </Typography>
