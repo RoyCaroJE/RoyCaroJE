@@ -30,6 +30,14 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
     i18n.changeLanguage(event.target.value as Language);
   };
 
+  i18n.init({
+    fallbackLng: "es",
+    supportedLngs: ["es", "en", "fr"],
+    load: "languageOnly",
+  });
+
+  const currentLanguage = i18n.language.split("-")[0] as Language;
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -49,7 +57,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Select
-              value={i18n.language as Language}
+              value={currentLanguage}
               onChange={handleLanguageChange}
               size="small"
               variant="outlined"
