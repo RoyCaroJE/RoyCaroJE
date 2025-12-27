@@ -2,6 +2,7 @@ import { Button, Grid, Typography, Box } from "@mui/material";
 import SocialMedia from "./SocialMedia";
 import MailIcon from "@mui/icons-material/Mail";
 import DownloadIcon from "@mui/icons-material/Download";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
   const handleDownloadCV = () => {
@@ -10,6 +11,8 @@ function Footer() {
     link.download = "Jean-Edouard-Roy-Caro-CV.pdf";
     link.click();
   };
+
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -69,7 +72,7 @@ function Footer() {
               },
             }}
           >
-            Download CV
+            {t("download")}
           </Button>
         </Grid>
       </Grid>

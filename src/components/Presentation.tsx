@@ -3,8 +3,10 @@ import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
 import TechStack from "./TechStack";
 import me from "../static/me.jpg";
+import { useTranslation } from "react-i18next";
 
 function Presentation() {
+  const { t } = useTranslation();
   return (
     <Grid
       container
@@ -45,14 +47,14 @@ function Presentation() {
               lineHeight: 1.1,
             }}
           >
-            Engineering Scalable Apps.
+            {t("title")}
           </Typography>
           <Typography
             variant="h3"
             fontWeight={400}
             sx={{ mt: 1, color: "text.secondary" }}
           >
-            Clean Code.{" "}
+            {t("subtitle1") + " "}
             <Box
               component="span"
               sx={{
@@ -70,7 +72,7 @@ function Presentation() {
                 willChange: "transform",
               }}
             >
-              Good Vibes.
+              {t("subtitle2")}
             </Box>
           </Typography>
 
@@ -83,13 +85,7 @@ function Presentation() {
               paddingTop: 2,
             }}
           >
-            I'm a Software Engineer from Málaga, building scalable apps with
-            Java Spring Boot and React TypeScript. I work across the full
-            development lifecycle and enjoy clean architectures, maintainable
-            code, and modern tools like Docker, Kubernetes, PostgreSQL, GitHub,
-            and GitHub Actions. Fluent in French, Spanish, Portuguese, and
-            English, I thrive in multicultural teams, and yes, I bring Málaga
-            sunshine to stand-ups! ☀️😄
+            {t("presentation_text")}
           </Typography>
           <TechStack />
         </Box>
