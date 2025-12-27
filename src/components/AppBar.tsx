@@ -30,12 +30,6 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
     i18n.changeLanguage(event.target.value as Language);
   };
 
-  i18n.init({
-    fallbackLng: "es",
-    supportedLngs: ["es", "en", "fr"],
-    load: "languageOnly",
-  });
-
   const currentLanguage = i18n.language.split("-")[0] as Language;
 
   return (
