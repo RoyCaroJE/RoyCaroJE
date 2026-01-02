@@ -15,7 +15,7 @@ i18n
       en: { translation: en },
       fr: { translation: fr },
     },
-    fallbackLng: "es",
+    fallbackLng: "en",
     interpolation: {
       escapeValue: false,
     },
