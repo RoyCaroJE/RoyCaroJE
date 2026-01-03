@@ -1,12 +1,12 @@
-import { Box, Stack, Typography } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import TechStack from "./TechStack";
+import TechStack from "./techstack/TechStack";
 import me from "../static/me.jpg";
 import { useTranslation } from "react-i18next";
 
 function Presentation() {
   const { t } = useTranslation();
+  const theme = useTheme();
   return (
     <Grid
       container
@@ -24,16 +24,21 @@ function Presentation() {
         }}
       >
         <Stack direction="column">
-          <Avatar
-            alt="Jean Edouard Roy Caro Picture"
+          <img
             src={me}
-            sx={{
+            alt="Jean Edouard Roy Caro Picture"
+            width={350}
+            height={350}
+            style={{
               width: 350,
               height: 350,
-              boxShadow: 4,
-              border: "3px solid",
-              borderColor: "secondary.main",
+              borderRadius: "50%",
+              boxShadow: "0px 4px 12px rgba(0,0,0,0.25)",
+              border: `4px solid ${theme.palette.secondary.main}`,
+              objectFit: "cover",
             }}
+            fetchPriority="high"
+            decoding="async"
           />
         </Stack>
       </Grid>

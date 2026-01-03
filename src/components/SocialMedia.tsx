@@ -33,6 +33,7 @@ export default function SocialMedia() {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={label}
         >
           {icon}
         </IconButton>

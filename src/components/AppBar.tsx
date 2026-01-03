@@ -44,6 +44,8 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
             <img
               src={isDark ? "./logo_white.svg" : "./logo_black.svg"}
               width="25"
+              height="25"
+              alt="Jean Edouard's Web Logo"
             />
             <Typography sx={{ fontWeight: 700 }}>
               Jean Edouard Roy Caro
@@ -51,6 +53,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Select
+              labelId="language-select-label"
               value={currentLanguage}
               onChange={handleLanguageChange}
               size="small"
@@ -64,6 +67,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
                       width: "1.4em",
                       height: "1.4em",
                     }}
+                    alt={value}
                   />
                 </Box>
               )}
@@ -92,6 +96,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
             <Button
               color="inherit"
               onClick={toggleTheme}
+              aria-label={isDark ? "Light Mode" : "Dark Mode"}
               sx={{
                 minWidth: 40,
                 "&:hover svg": {

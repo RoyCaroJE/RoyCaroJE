@@ -66,6 +66,7 @@ function Footer() {
               borderRadius: 2,
               boxShadow: "none",
               backgroundColor: "secondary.main",
+              color: "secondary.contrastText",
               "&:hover": {
                 backgroundColor: "secondary.light",
                 boxShadow: 2,
