@@ -9,7 +9,7 @@ export default function SocialMedia() {
   const socialLinks = [
     {
       icon: <GitHubIcon sx={{ fontSize: iconSize }} />,
-      url: "https://github.com/caroyedu",
+      url: "https://github.com/roycaroje",
       label: "GitHub",
     },
     {
