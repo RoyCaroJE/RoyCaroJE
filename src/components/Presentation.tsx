@@ -3,7 +3,9 @@ import Grid from "@mui/material/Grid";
 import TechStack from "./techstack/TechStack";
 import { useTranslation } from "react-i18next";
 
-const ME_IMAGE = "/me.jpg";
+const ME_IMAGE_WEBP_SRCSET =
+  "/optimized/me-342.webp 342w, /optimized/me-684.webp 684w";
+const ME_IMAGE_FALLBACK = "/me.jpg";
 
 function Presentation() {
   const { t } = useTranslation();
@@ -25,23 +27,30 @@ function Presentation() {
         }}
       >
         <Stack direction="column">
-          <img
-            src={ME_IMAGE}
-            alt="Jean Edouard Roy Caro"
-            width={350}
-            height={350}
-            style={{
-              width: 350,
-              height: 350,
-              borderRadius: "50%",
-              boxShadow: "0px 4px 12px rgba(0,0,0,0.25)",
-              border: `4px solid ${theme.palette.secondary.main}`,
-              objectFit: "cover",
-            }}
-            fetchPriority="high"
-            loading="eager"
-            decoding="sync"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={ME_IMAGE_WEBP_SRCSET}
+              sizes="(max-width: 900px) 280px, 342px"
+            />
+            <img
+              src={ME_IMAGE_FALLBACK}
+              alt="Jean Edouard Roy Caro"
+              width={350}
+              height={350}
+              style={{
+                width: 350,
+                height: 350,
+                borderRadius: "50%",
+                boxShadow: "0px 4px 12px rgba(0,0,0,0.25)",
+                border: `4px solid ${theme.palette.secondary.main}`,
+                objectFit: "cover",
+              }}
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
+            />
+          </picture>
         </Stack>
       </Grid>
       <Grid size={{ xs: 12, md: 8 }} alignItems="center">

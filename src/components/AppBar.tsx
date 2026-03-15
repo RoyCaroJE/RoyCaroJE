@@ -7,7 +7,6 @@ import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import ReactCountryFlag from "react-country-flag";
 import { useTranslation } from "react-i18next";
 
 interface AppProps {
@@ -17,14 +16,14 @@ interface AppProps {
 
 type Language = "es" | "en" | "fr";
 
-const LANGUAGE_TO_COUNTRY: Record<Language, string> = {
-  es: "ES",
-  en: "GB",
-  fr: "FR",
+const LANGUAGE_TO_FLAG: Record<Language, string> = {
+  es: "🇪🇸",
+  en: "🇬🇧",
+  fr: "🇫🇷",
 };
 
 export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const handleLanguageChange = (event: SelectChangeEvent) => {
     i18n.changeLanguage(event.target.value as Language);
@@ -53,22 +52,22 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Select
-              labelId="language-select-label"
               value={currentLanguage}
               onChange={handleLanguageChange}
               size="small"
               variant="outlined"
+              inputProps={{
+                "aria-label": t("languageSelector"),
+              }}
               renderValue={(value) => (
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <ReactCountryFlag
-                    svg
-                    countryCode={LANGUAGE_TO_COUNTRY[value as Language]}
-                    style={{
-                      width: "1.4em",
-                      height: "1.4em",
-                    }}
-                    alt={value}
-                  />
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    fontSize: "1.2rem",
+                  }}
+                >
+                  {LANGUAGE_TO_FLAG[value as Language]}
                 </Box>
               )}
               sx={{
@@ -79,17 +78,17 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
               }}
             >
               <MenuItem value="es">
-                <ReactCountryFlag svg countryCode="ES" />
+                <Box component="span">🇪🇸</Box>
                 <Box sx={{ ml: 1 }}>Español</Box>
               </MenuItem>
 
               <MenuItem value="en">
-                <ReactCountryFlag svg countryCode="GB" />
+                <Box component="span">🇬🇧</Box>
                 <Box sx={{ ml: 1 }}>English</Box>
               </MenuItem>
 
               <MenuItem value="fr">
-                <ReactCountryFlag svg countryCode="FR" />
+                <Box component="span">🇫🇷</Box>
                 <Box sx={{ ml: 1 }}>Français</Box>
               </MenuItem>
             </Select>

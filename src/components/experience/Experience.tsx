@@ -92,7 +92,7 @@ function Experience() {
               },
             }}
           >
-            <Typography variant="h6" fontWeight={700}>
+            <Typography component="h5" variant="h6" fontWeight={700}>
               {item.title}
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
