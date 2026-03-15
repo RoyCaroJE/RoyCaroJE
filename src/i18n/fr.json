@@ -3,5 +3,43 @@
   "title": "Développement d'applications scalables.",
   "subtitle1": "Code Propre.",
   "subtitle2": "Bonnes Vibes.",
-  "presentation_text": "Je suis ingénieur logiciel basé à Málaga, spécialisé dans le développement d'applications scalables avec Java Spring Boot et React TypeScript. J'interviens sur l'ensemble du cycle de vie du développement et j'apprécie les architectures propres, le code maintenable et les outils modernes tels que Docker, Kubernetes, PostgreSQL, GitHub et GitHub Actions. Je parle couramment le français, l'espagnol, le portugais et l'anglais. J'évolue avec aisance dans des équipes multiculturelles et, oui, j'apporte le soleil de Málaga aux dailies! ☀️😄"
+  "presentation_text": "Je suis ingénieur logiciel basé à Málaga, spécialisé dans le développement d'applications scalables avec Java Spring Boot et React TypeScript. J'interviens sur l'ensemble du cycle de vie du développement et j'apprécie les architectures propres, le code maintenable et les outils modernes tels que Docker, Kubernetes, PostgreSQL, GitHub et GitHub Actions. Je parle couramment le français, l'espagnol, le portugais et l'anglais. J'évolue avec aisance dans des équipes multiculturelles et, oui, j'apporte le soleil de Málaga aux dailies! ☀️😄",
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Une sélection de projets sur lesquels j'ai travaillé.",
+    "viewProject": "Voir le projet",
+    "items": {
+      "project1": {
+        "title": "L'Imposteur",
+        "description": "Jeu de déduction sociale gratuit en ligne : choisissez des catégories ou jouez avec des mots personnalisés pour découvrir qui est l'imposteur. Full stack développé avec Java Spring Boot, React, TypeScript, GraphQL et PostgreSQL."
+      },
+      "project2": {
+        "title": "API Contrats Clients",
+        "description": "Une API RESTful utilisant le patron de conception factory en Java Spring Boot pour gérer les clients et les contrats."
+      },
+      "project3": {
+        "title": "Simulateur de Trading de Cryptomonnaies",
+        "description": "Application web full stack simulant le trading de cryptomonnaies avec des mises à jour de prix en temps réel, la gestion de comptes virtuels et l'historique des transactions."
+      }
+    }
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Expérience la plus récente en premier.",
+    "present": "Aujourd'hui",
+    "items": {
+      "currentRole": {
+        "title": "BESTSELLER - Jr. Développeur Full Stack",
+        "description": "Développement et tests d'applications web avec TypeScript, React, Bit Cloud et Jest. Contribution aux micro-services backend en Java avec Spring Boot, en utilisant des outils tels que Docker, Kubernetes, Kafka, RabbitMQ, MySQL et PostgreSQL. Utilisation d'outils d'observabilité comme Datadog (métriques, logs, tests synthétiques) pour surveiller et améliorer les performances des applications. Encadrement de nouveaux stagiaires en les guidant dans les pratiques de développement backend, les processus d'équipe et les workflows d'ingénierie."
+      },
+      "previousRole": {
+        "title": "NTT Data Europe Latam - Ingénieur Logiciel Stagiaire",
+        "description": "Utilisation de PL/SQL pour les processus ETL. Création de tableaux de bord visuels avec Tableau et Qlik Sense. Support aux tâches assignées par le superviseur et participation aux réunions avec comptes rendus de suivi."
+      },
+      "earlierRole": {
+        "title": "Poste Antérieur",
+        "description": "Principales responsabilités, technologies utilisées et impact obtenu."
+      }
+    }
+  }
 }

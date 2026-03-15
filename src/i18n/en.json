@@ -3,5 +3,43 @@
   "title": "Engineering Scalable Apps.",
   "subtitle1": "Clean Code.",
   "subtitle2": "Good Vibes.",
-  "presentation_text": "I'm a Software Engineer from Málaga, building scalable apps with Java Spring Boot and React TypeScript. I work across the full development lifecycle and enjoy clean architectures, maintainable code, and modern tools like Docker, Kubernetes, PostgreSQL, GitHub, and GitHub Actions. Fluent in French, Spanish, Portuguese, and English, I thrive in multicultural teams, and yes, I bring Málaga sunshine to stand-ups! ☀️😄"
+  "presentation_text": "I'm a Software Engineer from Málaga, building scalable apps with Java Spring Boot and React TypeScript. I work across the full development lifecycle and enjoy clean architectures, maintainable code, and modern tools like Docker, Kubernetes, PostgreSQL, GitHub, and GitHub Actions. Fluent in French, Spanish, Portuguese, and English, I thrive in multicultural teams, and yes, I bring Málaga sunshine to stand-ups! ☀️😄",
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of projects I have worked on.",
+    "viewProject": "View project",
+    "items": {
+      "project1": {
+        "title": "The Imposter",
+        "description": "Free online social deduction game: choose categories or play with custom words in to discover who the imposter is. Full stack built with Java Spring Boot, React, TypeScript, GraphQL, and PostgreSQL."
+      },
+      "project2": {
+        "title": "Client Contract API",
+        "description": "An RESTful API using the factory design pattern in Java Spring Boot to manage clients and contracts."
+      },
+      "project3": {
+        "title": "Crypto Trading Simulator",
+        "description": "A full stack web application simulating cryptocurrency trading with real-time price updates, virtual account management, and transaction history."
+      }
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Recent experience first.",
+    "present": "Present",
+    "items": {
+      "currentRole": {
+        "title": "BESTSELLER - Jr. Full Stack Developer",
+        "description": "Developed and tested web applications using TypeScript, React, Bit Cloud and Jest. Contributed to backend micro-services built in Java with Spring Boot, using tools such as Docker, Kubernetes, Kafka, RabbitMQ, MySQL and PostgreSQL. Used observability tools like Datadog (metrics, logs, synthetic tests) to monitor and improve application performance. Mentored new trainees, supporting their onboarding by guiding them through backend development practices, team processes, and engineering workflows."
+      },
+      "previousRole": {
+        "title": "NTT Data Europe Latam - Intern Software Engineer",
+        "description": "Worked with PL/SQL for ETL processes. Built visual dashboards using Tableau and Qlik Sense. Supported supervisor-assigned tasks and attended meetings with follow-up reports."
+      },
+      "earlierRole": {
+        "title": "Earlier Role",
+        "description": "Main responsibilities, technologies used, and impact achieved."
+      }
+    }
+  }
 }
