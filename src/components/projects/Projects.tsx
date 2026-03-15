@@ -5,24 +5,31 @@ import ProjectCard, { type ProjectCardProps } from "./ProjectCard";
 
 interface ProjectConfig {
   id: string;
-  image: string;
+  imageFallback: string;
+  imageWebpSrcSet: string;
   link: string;
 }
 
 const PROJECTS: ProjectConfig[] = [
   {
     id: "project1",
-    image: "./the-imposter.png",
+    imageFallback: "./the-imposter.png",
+    imageWebpSrcSet:
+      "/optimized/the-imposter-380.webp 380w, /optimized/the-imposter-760.webp 760w",
     link: "https://the-imposter.app/",
   },
   {
     id: "project2",
-    image: "./client-contract-api.png",
+    imageFallback: "./client-contract-api.png",
+    imageWebpSrcSet:
+      "/optimized/client-contract-api-380.webp 380w, /optimized/client-contract-api-760.webp 760w",
     link: "https://github.com/RoyCaroJE/client-contract-api",
   },
   {
     id: "project3",
-    image: "./crypto-trading-simulator.png",
+    imageFallback: "./crypto-trading-simulator.png",
+    imageWebpSrcSet:
+      "/optimized/crypto-trading-simulator-380.webp 380w, /optimized/crypto-trading-simulator-760.webp 760w",
     link: "https://github.com/RoyCaroJE/crypto-trading-sim",
   },
 ];
@@ -33,7 +40,8 @@ function Projects() {
   const projectCards: ProjectCardProps[] = PROJECTS.map((project) => ({
     title: t(`projects.items.${project.id}.title`),
     description: t(`projects.items.${project.id}.description`),
-    image: project.image,
+    imageFallback: project.imageFallback,
+    imageWebpSrcSet: project.imageWebpSrcSet,
     link: project.link,
   }));
 
