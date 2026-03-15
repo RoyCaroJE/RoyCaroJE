@@ -32,6 +32,10 @@ function ProjectCard({ title, description, image, link }: ProjectCardProps) {
         component="img"
         image={image}
         alt={title}
+        loading="lazy"
+        decoding="async"
+        width={400}
+        height={180}
         sx={{
           height: 180,
           objectFit: "cover",

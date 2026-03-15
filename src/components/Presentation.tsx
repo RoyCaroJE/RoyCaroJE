@@ -1,8 +1,9 @@
 import { Box, Stack, Typography, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TechStack from "./techstack/TechStack";
-import me from "../static/me.jpg";
 import { useTranslation } from "react-i18next";
+
+const ME_IMAGE = "/me.jpg";
 
 function Presentation() {
   const { t } = useTranslation();
@@ -25,8 +26,8 @@ function Presentation() {
       >
         <Stack direction="column">
           <img
-            src={me}
-            alt="Jean Edouard Roy Caro Picture"
+            src={ME_IMAGE}
+            alt="Jean Edouard Roy Caro"
             width={350}
             height={350}
             style={{
@@ -38,7 +39,8 @@ function Presentation() {
               objectFit: "cover",
             }}
             fetchPriority="high"
-            decoding="async"
+            loading="eager"
+            decoding="sync"
           />
         </Stack>
       </Grid>

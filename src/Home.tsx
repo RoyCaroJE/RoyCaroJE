@@ -1,15 +1,21 @@
+import { lazy, Suspense } from "react";
 import { Container, Divider, Stack } from "@mui/material";
 import Presentation from "./components/Presentation";
-import Projects from "./components/projects/Projects.tsx";
-import Experience from "./components/experience/Experience.tsx";
+
+const Projects = lazy(() => import("./components/projects/Projects.tsx"));
+const Experience = lazy(() => import("./components/experience/Experience.tsx"));
 
 function Home() {
   return (
     <Container>
       <Stack divider={<Divider />} spacing={2}>
         <Presentation />
-        <Projects />
-        <Experience />
+        <Suspense fallback={null}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Experience />
+        </Suspense>
       </Stack>
     </Container>
   );
