@@ -80,11 +80,15 @@ function Experience() {
           return (
             <Box
               key={`${item.title}-${item.startDate}`}
-              sx={{
+              sx={(theme) => ({
                 position: "relative",
                 p: 2,
                 borderRadius: 2,
-                bgcolor: isMostRecent ? "background.paper" : "grey.100",
+                bgcolor: isMostRecent
+                  ? "background.paper"
+                  : theme.palette.mode === "dark"
+                    ? "background.paper"
+                    : "grey.100",
                 border: "1px solid",
                 borderColor: isMostRecent ? "secondary.main" : "divider",
                 boxShadow: isMostRecent ? 2 : 0,
@@ -94,7 +98,7 @@ function Experience() {
                 "&:hover": {
                   opacity: 1,
                   boxShadow: 3,
-                  bgcolor: isOlder ? "background.paper" : "background.paper",
+                  bgcolor: "background.paper",
                   borderColor: isMostRecent ? "secondary.main" : "primary.main",
                 },
                 "&::before": {
@@ -109,7 +113,7 @@ function Experience() {
                   border: "2px solid",
                   borderColor: "background.default",
                 },
-              }}
+              })}
             >
               <Typography
                 component="h5"
