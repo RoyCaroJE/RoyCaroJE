@@ -30,16 +30,20 @@
     "present": "Present",
     "items": {
       "currentRole": {
-        "title": "BESTSELLER - Jr. Full Stack Developer",
-        "description": "Developed and tested web applications using TypeScript, React, Bit Cloud and Jest. Contributed to backend micro-services built in Java with Spring Boot, using tools such as Docker, Kubernetes, Kafka, RabbitMQ, MySQL and PostgreSQL. Used observability tools like Datadog (metrics, logs, synthetic tests) to monitor and improve application performance. Mentored new trainees, supporting their onboarding by guiding them through backend development practices, team processes, and engineering workflows."
+        "title": "BESTSELLER - Full Stack Developer & Mentor",
+        "description": "Leading frontend and backend mentoring activities as the primary mentor for a new cohort of developers joining the team. I lead the development of an end-to-end automation platform for the sample distribution process used by sales representatives after customer purchases, while working with large datasets, query optimization, critical path analysis, and backend performance improvements across distributed microservices."
       },
       "previousRole": {
-        "title": "NTT Data Europe Latam - Intern Software Engineer",
-        "description": "Worked with PL/SQL for ETL processes. Built visual dashboards using Tableau and Qlik Sense. Supported supervisor-assigned tasks and attended meetings with follow-up reports."
+        "title": "BESTSELLER - Junior Full Stack Developer",
+        "description": "Contributed to business-critical projects including automation of customer order confirmations, value-added customer services, and automatic replenishment of Never Out Of Stock (NOOS) products across retail stores. Implemented monitoring, logging, and synthetic end-to-end testing with Datadog. Acted as a secondary mentor for new trainees, supporting their onboarding and technical growth."
       },
       "earlierRole": {
-        "title": "Earlier Role",
-        "description": "Main responsibilities, technologies used, and impact achieved."
+        "title": "BESTSELLER - Trainee Full Stack Developer",
+        "description": "Contributed to React and Spring Boot applications under mentorship, gaining hands-on experience with distributed microservices and cloud-native technologies. Worked with Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL, and MySQL in production environments. Participated in testing, bug fixing, code reviews, and Agile ceremonies while progressively taking ownership of development tasks."
+      },
+      "internRole": {
+        "title": "NTT DATA Europe & LATAM - Software Engineer Intern",
+        "description": "Developed ETL processes using PL/SQL and built business dashboards with Tableau and Qlik Sense."
       }
     }
   }

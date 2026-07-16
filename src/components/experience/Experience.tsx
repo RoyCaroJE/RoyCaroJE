@@ -18,18 +18,23 @@ interface ExperienceConfig {
 const EXPERIENCE: ExperienceConfig[] = [
   {
     id: "currentRole",
-    startDate: "OCT 2024",
+    startDate: "JUL 2026",
   },
   {
     id: "previousRole",
-    startDate: "FEB 2024",
-    endDate: "APR 2024",
+    startDate: "APR 2025",
+    endDate: "JUN 2026",
   },
-  /* {
+  {
     id: "earlierRole",
-    startDate: "2020",
-    endDate: "2022",
-  }, */
+    startDate: "OCT 2024",
+    endDate: "MAR 2025",
+  },
+  {
+    id: "internRole",
+    startDate: "MAR 2024",
+    endDate: "MAY 2024",
+  },
 ];
 
 function Experience() {
