@@ -8,8 +8,8 @@ function Home() {
     <Container>
       <Stack divider={<Divider />} spacing={2}>
         <Presentation />
-        <Projects />
         <Experience />
+        <Projects />
       </Stack>
     </Container>
   );

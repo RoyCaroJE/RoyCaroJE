@@ -77,5 +77,10 @@ export const darkTheme = createTheme({
       default: "#393E46",
       paper: "#222831",
     },
+    text: {
+      primary: "#DFD0B8",
+      secondary: "#B7ABA0",
+    },
+    divider: "#5A5A5A",
   },
 });

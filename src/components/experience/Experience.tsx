@@ -18,18 +18,23 @@ interface ExperienceConfig {
 const EXPERIENCE: ExperienceConfig[] = [
   {
     id: "currentRole",
-    startDate: "OCT 2024",
+    startDate: "JUL 2026",
   },
   {
     id: "previousRole",
-    startDate: "FEB 2024",
-    endDate: "APR 2024",
+    startDate: "APR 2025",
+    endDate: "JUN 2026",
   },
-  /* {
+  {
     id: "earlierRole",
-    startDate: "2020",
-    endDate: "2022",
-  }, */
+    startDate: "OCT 2024",
+    endDate: "MAR 2025",
+  },
+  {
+    id: "internRole",
+    startDate: "MAR 2024",
+    endDate: "MAY 2024",
+  },
 ];
 
 function Experience() {
@@ -68,39 +73,67 @@ function Experience() {
           },
         }}
       >
-        {items.map((item) => (
-          <Box
-            key={`${item.title}-${item.startDate}`}
-            sx={{
-              position: "relative",
-              p: 2,
-              borderRadius: 2,
-              bgcolor: "background.paper",
-              border: "1px solid",
-              borderColor: "divider",
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                left: -26,
-                top: 22,
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                bgcolor: "secondary.main",
-                border: "2px solid",
-                borderColor: "background.default",
-              },
-            }}
-          >
-            <Typography component="h5" variant="h6" fontWeight={700}>
-              {item.title}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              {item.startDate} - {item.endDate ?? t("experience.present")}
-            </Typography>
-            <Typography variant="body1">{item.description}</Typography>
-          </Box>
-        ))}
+        {items.map((item, index) => {
+          const isMostRecent = index === 0;
+          const isOlder = index > 0;
+
+          return (
+            <Box
+              key={`${item.title}-${item.startDate}`}
+              sx={(theme) => ({
+                position: "relative",
+                p: 2,
+                borderRadius: 2,
+                bgcolor: isMostRecent
+                  ? "background.paper"
+                  : theme.palette.mode === "dark"
+                    ? "background.paper"
+                    : "grey.100",
+                border: "1px solid",
+                borderColor: isMostRecent ? "secondary.main" : "divider",
+                boxShadow: isMostRecent ? 2 : 0,
+                opacity: isOlder ? 0.72 : 1,
+                transform: isMostRecent ? "translateX(0)" : "translateX(0)",
+                transition: "all 0.2s ease-in-out",
+                "&:hover": {
+                  opacity: 1,
+                  boxShadow: 3,
+                  bgcolor: "background.paper",
+                  borderColor: isMostRecent ? "secondary.main" : "primary.main",
+                },
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  left: -26,
+                  top: 22,
+                  width: 12,
+                  height: 12,
+                  borderRadius: "50%",
+                  bgcolor: isMostRecent ? "secondary.main" : "grey.500",
+                  border: "2px solid",
+                  borderColor: "background.default",
+                },
+              })}
+            >
+              <Typography
+                component="h5"
+                variant="h6"
+                fontWeight={700}
+                sx={{ color: isMostRecent ? "text.primary" : "text.secondary" }}
+              >
+                {item.title}
+              </Typography>
+              <Typography
+                variant="body2"
+                color={isMostRecent ? "text.primary" : "text.secondary"}
+                sx={{ mb: 1, fontWeight: isMostRecent ? 600 : 400 }}
+              >
+                {item.startDate} - {item.endDate ?? t("experience.present")}
+              </Typography>
+              <Typography variant="body1">{item.description}</Typography>
+            </Box>
+          );
+        })}
       </Stack>
     </Box>
   );
