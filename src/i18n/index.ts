@@ -6,7 +6,6 @@ import en from "./en.json";
 import fr from "./fr.json";
 
 const SUPPORTED_LANGUAGES = ["es", "en", "fr"] as const;
-type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 i18n.use(initReactI18next).init({
   lng: "en",
