@@ -16,10 +16,10 @@ interface AppProps {
 
 type Language = "es" | "en" | "fr";
 
-const LANGUAGE_TO_FLAG: Record<Language, string> = {
-  es: "🇪🇸",
-  en: "🇬🇧",
-  fr: "🇫🇷",
+const LANGUAGE_TO_FLAG_SRC: Record<Language, string> = {
+  es: "/flags/es.svg",
+  en: "/flags/en.svg",
+  fr: "/flags/fr.svg",
 };
 
 export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
@@ -64,10 +64,21 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    fontSize: "1.2rem",
+                    justifyContent: "center",
+                    minWidth: 28,
                   }}
                 >
-                  {LANGUAGE_TO_FLAG[value as Language]}
+                  <Box
+                    component="img"
+                    src={LANGUAGE_TO_FLAG_SRC[value as Language]}
+                    alt={(value as Language).toUpperCase()}
+                    sx={{
+                      width: 24,
+                      height: 18,
+                      objectFit: "cover",
+                      borderRadius: 0.5,
+                    }}
+                  />
                 </Box>
               )}
               sx={{
@@ -78,17 +89,47 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
               }}
             >
               <MenuItem value="es">
-                <Box component="span">🇪🇸</Box>
+                <Box
+                  component="img"
+                  src={LANGUAGE_TO_FLAG_SRC.es}
+                  alt="Spain"
+                  sx={{
+                    width: 24,
+                    height: 18,
+                    objectFit: "cover",
+                    borderRadius: 0.5,
+                  }}
+                />
                 <Box sx={{ ml: 1 }}>Español</Box>
               </MenuItem>
 
               <MenuItem value="en">
-                <Box component="span">🇬🇧</Box>
+                <Box
+                  component="img"
+                  src={LANGUAGE_TO_FLAG_SRC.en}
+                  alt="United Kingdom"
+                  sx={{
+                    width: 24,
+                    height: 18,
+                    objectFit: "cover",
+                    borderRadius: 0.5,
+                  }}
+                />
                 <Box sx={{ ml: 1 }}>English</Box>
               </MenuItem>
 
               <MenuItem value="fr">
-                <Box component="span">🇫🇷</Box>
+                <Box
+                  component="img"
+                  src={LANGUAGE_TO_FLAG_SRC.fr}
+                  alt="France"
+                  sx={{
+                    width: 24,
+                    height: 18,
+                    objectFit: "cover",
+                    borderRadius: 0.5,
+                  }}
+                />
                 <Box sx={{ ml: 1 }}>Français</Box>
               </MenuItem>
             </Select>
