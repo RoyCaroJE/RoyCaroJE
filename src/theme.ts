@@ -1,6 +1,30 @@
 import { createTheme } from "@mui/material/styles";
 
+const sharedThemeOptions = {
+  shape: { borderRadius: 16 },
+  typography: {
+    fontFamily: '"Inter", "Aptos", "Segoe UI", sans-serif',
+    h1: { fontWeight: 800, letterSpacing: "-0.055em" },
+    h2: { fontWeight: 800, letterSpacing: "-0.045em" },
+    h4: { fontWeight: 750, letterSpacing: "-0.035em" },
+    button: { fontWeight: 650, textTransform: "none" as const },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: { borderRadius: 999, paddingInline: 18 },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: { backgroundImage: "none" },
+      },
+    },
+  },
+};
+
 export const lightTheme = createTheme({
+  ...sharedThemeOptions,
   palette: {
     mode: "light",
     primary: {
@@ -30,21 +54,18 @@ export const lightTheme = createTheme({
       dark: "#1b7f5c",
       contrastText: "#ffffff",
     },
-
     warning: {
       main: "#b8871f",
       light: "#dfae44",
       dark: "#866231",
       contrastText: "#000000",
     },
-
     error: {
       main: "#b13535",
       light: "#d06262",
       dark: "#7a2424",
       contrastText: "#ffffff",
     },
-
     info: {
       main: "#1e56a3",
       light: "#347ada",
@@ -52,29 +73,10 @@ export const lightTheme = createTheme({
       contrastText: "#ffffff",
     },
   },
-  shape: { borderRadius: 16 },
-  typography: {
-    fontFamily: '"Inter", "Aptos", "Segoe UI", sans-serif',
-    h1: { fontWeight: 800, letterSpacing: "-0.055em" },
-    h2: { fontWeight: 800, letterSpacing: "-0.045em" },
-    h4: { fontWeight: 750, letterSpacing: "-0.035em" },
-    button: { fontWeight: 650, textTransform: "none" },
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: { borderRadius: 999, paddingInline: 18 },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: { backgroundImage: "none" },
-      },
-    },
-  },
 });
 
 export const darkTheme = createTheme({
+  ...sharedThemeOptions,
   palette: {
     mode: "dark",
     primary: {
@@ -92,31 +94,6 @@ export const darkTheme = createTheme({
     background: {
       default: "#101714",
       paper: "#19221E",
-    },
-    text: {
-      primary: "#EDF4EF",
-      secondary: "#A6B5AC",
-    },
-    divider: "#303C35",
-  },
-  shape: { borderRadius: 16 },
-  typography: {
-    fontFamily: '"Inter", "Aptos", "Segoe UI", sans-serif',
-    h1: { fontWeight: 800, letterSpacing: "-0.055em" },
-    h2: { fontWeight: 800, letterSpacing: "-0.045em" },
-    h4: { fontWeight: 750, letterSpacing: "-0.035em" },
-    button: { fontWeight: 650, textTransform: "none" },
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: { borderRadius: 999, paddingInline: 18 },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: { backgroundImage: "none" },
-      },
     },
     text: {
       primary: "#DFD0B8",
