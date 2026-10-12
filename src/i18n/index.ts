@@ -6,15 +6,10 @@ import en from "./en.json";
 import fr from "./fr.json";
 
 const SUPPORTED_LANGUAGES = ["es", "en", "fr"] as const;
-type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
-
-function getInitialLanguage(): SupportedLanguage {
-  const browserLanguage = navigator.language.split("-")[0] as SupportedLanguage;
-  return SUPPORTED_LANGUAGES.includes(browserLanguage) ? browserLanguage : "en";
-}
 
 i18n.use(initReactI18next).init({
-  lng: getInitialLanguage(),
+  lng: "en",
+  supportedLngs: SUPPORTED_LANGUAGES,
   resources: {
     es: { translation: es },
     en: { translation: en },

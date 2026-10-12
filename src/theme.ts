@@ -118,5 +118,10 @@ export const darkTheme = createTheme({
         root: { backgroundImage: "none" },
       },
     },
+    text: {
+      primary: "#DFD0B8",
+      secondary: "#B7ABA0",
+    },
+    divider: "#5A5A5A",
   },
 });
