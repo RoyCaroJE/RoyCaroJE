@@ -3,10 +3,14 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Select, { type SelectChangeEvent } from "@mui/material/Select";
+import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import TranslateIcon from "@mui/icons-material/Translate";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import CheckIcon from "@mui/icons-material/Check";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface AppProps {
@@ -16,20 +20,20 @@ interface AppProps {
 
 type Language = "es" | "en" | "fr";
 
-const LANGUAGE_TO_FLAG: Record<Language, string> = {
-  es: "🇪🇸",
-  en: "🇬🇧",
-  fr: "🇫🇷",
-};
+const LANGUAGES: { code: Language; flag: string; label: string }[] = [
+  { code: "es", flag: "🇪🇸", label: "Español" },
+  { code: "en", flag: "🇬🇧", label: "English" },
+  { code: "fr", flag: "🇫🇷", label: "Français" },
+];
 
 export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
   const { i18n, t } = useTranslation();
-
-  const handleLanguageChange = (event: SelectChangeEvent) => {
-    i18n.changeLanguage(event.target.value as Language);
-  };
+  const [languageMenuAnchor, setLanguageMenuAnchor] =
+    useState<HTMLElement | null>(null);
 
   const currentLanguage = i18n.language.split("-")[0] as Language;
+  const activeLanguage =
+    LANGUAGES.find(({ code }) => code === currentLanguage) ?? LANGUAGES[1];
   const navigationLinks = [
     { href: "#intro", label: t("navigation.intro") },
     { href: "#projects", label: t("navigation.projects") },
@@ -139,50 +143,100 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
             justifySelf: "end",
           }}
         >
-          <Select
-            value={currentLanguage}
-            onChange={handleLanguageChange}
+          <Button
+            color="inherit"
             size="small"
             variant="outlined"
-            inputProps={{ "aria-label": t("languageSelector") }}
-            renderValue={(value) => (
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  fontSize: "1.1rem",
-                }}
-              >
-                {LANGUAGE_TO_FLAG[value as Language]}
-              </Box>
-            )}
+            onClick={(event) => setLanguageMenuAnchor(event.currentTarget)}
+            aria-label={t("languageSelector")}
+            aria-haspopup="menu"
+            aria-expanded={Boolean(languageMenuAnchor)}
+            aria-controls={languageMenuAnchor ? "language-menu" : undefined}
             sx={{
-              minWidth: 52,
-              "& .MuiSelect-select": { py: 0.75, px: 1 },
-              "& .MuiOutlinedInput-notchedOutline": { borderColor: "divider" },
+              minWidth: { xs: 44, sm: 78 },
+              px: { xs: 0.5, sm: 1 },
+              py: 0.75,
+              borderColor: "divider",
+              borderRadius: 999,
+              color: "text.secondary",
+              fontSize: { xs: ".65rem", sm: ".78rem" },
+              "&:hover": {
+                borderColor: "secondary.main",
+                bgcolor: "action.hover",
+              },
             }}
           >
-            <MenuItem value="es">
-              <Box component="span">🇪🇸</Box>
-              <Box sx={{ ml: 1 }}>Español</Box>
-            </MenuItem>
-            <MenuItem value="en">
-              <Box component="span">🇬🇧</Box>
-              <Box sx={{ ml: 1 }}>English</Box>
-            </MenuItem>
-            <MenuItem value="fr">
-              <Box component="span">🇫🇷</Box>
-              <Box sx={{ ml: 1 }}>Français</Box>
-            </MenuItem>
-          </Select>
+            <TranslateIcon sx={{ fontSize: { xs: 15, sm: 17 }, mr: 0.5 }} />
+            {activeLanguage.code.toUpperCase()}
+            <KeyboardArrowDownIcon
+              sx={{
+                display: { xs: "none", sm: "block" },
+                fontSize: 18,
+                ml: 0.25,
+              }}
+            />
+          </Button>
+          <Menu
+            id="language-menu"
+            anchorEl={languageMenuAnchor}
+            open={Boolean(languageMenuAnchor)}
+            onClose={() => setLanguageMenuAnchor(null)}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            slotProps={{
+              paper: {
+                sx: {
+                  mt: 1,
+                  minWidth: 176,
+                  border: "1px solid",
+                  borderColor: "divider",
+                  borderRadius: 2.5,
+                  boxShadow: (theme) =>
+                    theme.palette.mode === "dark"
+                      ? "0 16px 40px rgba(0,0,0,.35)"
+                      : "0 16px 40px rgba(29,61,48,.14)",
+                },
+              },
+            }}
+          >
+            {LANGUAGES.map(({ code, flag, label }) => (
+              <MenuItem
+                key={code}
+                selected={currentLanguage === code}
+                onClick={() => {
+                  void i18n.changeLanguage(code);
+                  setLanguageMenuAnchor(null);
+                }}
+                sx={{ gap: 1.25, py: 1.1 }}
+              >
+                <Box
+                  component="span"
+                  aria-hidden="true"
+                  sx={{ fontSize: "1.1rem", lineHeight: 1 }}
+                >
+                  {flag}
+                </Box>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  sx={{ flex: 1, fontWeight: 550 }}
+                >
+                  {label}
+                </Typography>
+                {currentLanguage === code && (
+                  <CheckIcon fontSize="small" color="secondary" />
+                )}
+              </MenuItem>
+            ))}
+          </Menu>
           <Button
             color="inherit"
             onClick={toggleTheme}
             aria-label={isDark ? "Light Mode" : "Dark Mode"}
             sx={{
-              minWidth: 40,
-              width: 40,
-              height: 40,
+              minWidth: { xs: 36, sm: 40 },
+              width: { xs: 36, sm: 40 },
+              height: { xs: 36, sm: 40 },
               px: 0,
               borderRadius: "50%",
               "&:hover svg": { transform: "rotate(20deg) scale(1.12)" },
