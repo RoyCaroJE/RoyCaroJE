@@ -1,5 +1,11 @@
 {
   "languageSelector": "Selector de idioma",
+  "navigation": {
+    "label": "Navegación principal",
+    "intro": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia"
+  },
   "download": "Descargar CV",
   "title": "Desarrollando aplicaciones escalables.",
   "subtitle1": "Código Limpio.",
@@ -28,22 +34,23 @@
     "title": "Experiencia",
     "subtitle": "Experiencia más reciente primero.",
     "present": "Actualidad",
+    "current": "Actual",
     "items": {
       "currentRole": {
-        "title": "BESTSELLER - Full Stack Developer & Mentor",
-        "description": "Lidero actividades de mentoría frontend y backend como mentor principal de una nueva hornada de desarrolladores que se incorporan al equipo. Dirijo el desarrollo de una plataforma de automatización end-to-end para el proceso de distribución de muestras utilizado por los representantes de ventas tras las compras de los clientes, además de trabajar con grandes volúmenes de datos, optimización de consultas, análisis de caminos críticos y mejoras de rendimiento en microservicios distribuidos."
+        "title": "BESTSELLER - Desarrollador Full Stack y mentor",
+        "description": "Lidero las actividades de mentoría frontend y backend como mentor principal de una nueva promoción de desarrolladores que se incorpora al equipo. Dirijo el desarrollo de una plataforma de automatización integral para el proceso de distribución de muestras que utilizan los representantes de ventas tras las compras de los clientes. También trabajo con grandes volúmenes de datos, optimización de consultas, análisis de rutas críticas y mejoras de rendimiento backend en microservicios distribuidos."
       },
-      "previousRole": {
-        "title": "BESTSELLER - Junior Full Stack Developer",
-        "description": "Contribuí a proyectos críticos para el negocio, incluyendo la automatización de confirmaciones de pedidos de clientes, servicios de valor añadido y la reposición automática de productos Never Out Of Stock (NOOS) en tiendas. Implementé monitorización, logging y pruebas sintéticas end-to-end con Datadog. Actué como mentor secundario para nuevos becarios, apoyando su incorporación y crecimiento técnico."
+      "juniorRole": {
+        "title": "BESTSELLER - Desarrollador Full Stack Junior",
+        "description": "Colaboré en proyectos críticos para el negocio, como la automatización de confirmaciones de pedidos de clientes, servicios de valor añadido y la reposición automática de productos Never Out Of Stock (NOOS) en tiendas. Implementé monitorización, registro de eventos y pruebas sintéticas de extremo a extremo con Datadog. También actué como mentor de apoyo para nuevos becarios, acompañando su incorporación y desarrollo técnico."
       },
-      "earlierRole": {
-        "title": "BESTSELLER - Trainee Full Stack Developer",
-        "description": "Contribuí a aplicaciones React y Spring Boot bajo mentoría, adquiriendo experiencia práctica con microservicios distribuidos y tecnologías cloud-native. Trabajé con Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL y MySQL en entornos de producción. Participé en pruebas, corrección de errores, revisiones de código y ceremonias Agile mientras fui asumiendo progresivamente tareas de desarrollo."
+      "traineeRole": {
+        "title": "BESTSELLER - Desarrollador Full Stack en prácticas",
+        "description": "Colaboré en aplicaciones React y Spring Boot con el apoyo de mentores, adquiriendo experiencia práctica con microservicios distribuidos y tecnologías cloud-native. Trabajé con Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL y MySQL en entornos de producción. Participé en pruebas, corrección de errores, revisiones de código y ceremonias Agile, asumiendo progresivamente más responsabilidades de desarrollo."
       },
       "internRole": {
-        "title": "NTT DATA Europe & LATAM - Ingeniero de Software en Prácticas",
-        "description": "Desarrollé procesos ETL con PL/SQL y construí dashboards de negocio con Tableau y Qlik Sense."
+        "title": "NTT DATA Europe & LATAM - Becario de Ingeniería de Software",
+        "description": "Desarrollé procesos ETL con PL/SQL y creé cuadros de mando empresariales con Tableau y Qlik Sense."
       }
     }
   }

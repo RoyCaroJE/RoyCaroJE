@@ -13,21 +13,21 @@ interface ProjectConfig {
 const PROJECTS: ProjectConfig[] = [
   {
     id: "project1",
-    imageFallback: "./the-imposter.png",
+    imageFallback: "/the-imposter.png",
     imageWebpSrcSet:
       "/optimized/the-imposter-380.webp 380w, /optimized/the-imposter-760.webp 760w",
     link: "https://the-imposter.app/",
   },
   {
     id: "project2",
-    imageFallback: "./client-contract-api.png",
+    imageFallback: "/client-contract-api.png",
     imageWebpSrcSet:
       "/optimized/client-contract-api-380.webp 380w, /optimized/client-contract-api-760.webp 760w",
     link: "https://github.com/RoyCaroJE/client-contract-api",
   },
   {
     id: "project3",
-    imageFallback: "./crypto-trading-simulator.png",
+    imageFallback: "/crypto-trading-simulator.png",
     imageWebpSrcSet:
       "/optimized/crypto-trading-simulator-380.webp 380w, /optimized/crypto-trading-simulator-760.webp 760w",
     link: "https://github.com/RoyCaroJE/crypto-trading-sim",
@@ -46,15 +46,27 @@ function Projects() {
   }));
 
   return (
-    <Box component="section" sx={{ py: { xs: 2, md: 3 } }}>
-      <Typography variant="h4" fontWeight={700} gutterBottom>
+    <Box
+      component="section"
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="motion-in"
+      sx={{ py: { xs: 4, md: 6 }, scrollMarginTop: "120px" }}
+    >
+      <Typography
+        id="projects-heading"
+        component="h2"
+        variant="h4"
+        sx={{ fontSize: { xs: "2rem", md: "2.6rem" } }}
+        gutterBottom
+      >
         {t("projects.title")}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
         {t("projects.subtitle")}
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={{ xs: 2, md: 3 }}>
         {projectCards.map((project) => (
           <Grid key={project.title} size={{ xs: 12, md: 6, lg: 4 }}>
             <ProjectCard {...project} />

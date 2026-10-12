@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Chip, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 interface ExperienceItem {
@@ -21,12 +21,12 @@ const EXPERIENCE: ExperienceConfig[] = [
     startDate: "JUL 2026",
   },
   {
-    id: "previousRole",
+    id: "juniorRole",
     startDate: "APR 2025",
     endDate: "JUN 2026",
   },
   {
-    id: "earlierRole",
+    id: "traineeRole",
     startDate: "OCT 2024",
     endDate: "MAR 2025",
   },
@@ -49,8 +49,20 @@ function Experience() {
   }));
 
   return (
-    <Box component="section" sx={{ py: { xs: 2, md: 3 } }}>
-      <Typography variant="h4" fontWeight={700} gutterBottom>
+    <Box
+      component="section"
+      id="experience"
+      aria-labelledby="experience-heading"
+      className="motion-in"
+      sx={{ py: { xs: 4, md: 6 }, scrollMarginTop: "120px" }}
+    >
+      <Typography
+        id="experience-heading"
+        component="h2"
+        variant="h4"
+        sx={{ fontSize: { xs: "2rem", md: "2.6rem" } }}
+        gutterBottom
+      >
         {t("experience.title")}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
@@ -61,79 +73,99 @@ function Experience() {
         spacing={2}
         sx={{
           position: "relative",
-          pl: 4,
+          pl: { xs: 3, sm: 4 },
           "&::before": {
             content: '""',
             position: "absolute",
-            left: 11,
-            top: 8,
-            bottom: 8,
+            left: { xs: 7, sm: 11 },
+            top: 10,
+            bottom: 10,
             width: 2,
-            bgcolor: "divider",
+            background: (theme) =>
+              `linear-gradient(${theme.palette.secondary.main}, ${theme.palette.divider})`,
           },
         }}
       >
-        {items.map((item, index) => {
-          const isMostRecent = index === 0;
-          const isOlder = index > 0;
+        {items.map((item) => (
+          <Box
+            key={`${item.title}-${item.startDate}`}
+            sx={(theme) => {
+              const isCurrent = !item.endDate;
 
-          return (
-            <Box
-              key={`${item.title}-${item.startDate}`}
-              sx={(theme) => ({
+              return {
                 position: "relative",
-                p: 2,
-                borderRadius: 2,
-                bgcolor: isMostRecent
-                  ? "background.paper"
-                  : theme.palette.mode === "dark"
-                    ? "background.paper"
-                    : "grey.100",
+                p: { xs: 2, sm: 3 },
+                borderRadius: 3,
+                bgcolor: isCurrent ? "background.paper" : "action.hover",
                 border: "1px solid",
-                borderColor: isMostRecent ? "secondary.main" : "divider",
-                boxShadow: isMostRecent ? 2 : 0,
-                opacity: isOlder ? 0.72 : 1,
-                transform: isMostRecent ? "translateX(0)" : "translateX(0)",
-                transition: "all 0.2s ease-in-out",
+                borderColor: isCurrent ? "secondary.main" : "divider",
+                opacity: isCurrent ? 1 : 0.76,
+                boxShadow: isCurrent
+                  ? `0 8px 28px ${theme.palette.secondary.main}18`
+                  : "none",
+                transition:
+                  "border-color 180ms ease, transform 180ms ease, opacity 180ms ease",
                 "&:hover": {
+                  borderColor: "secondary.main",
+                  transform: "translateX(4px)",
                   opacity: 1,
-                  boxShadow: 3,
-                  bgcolor: "background.paper",
-                  borderColor: isMostRecent ? "secondary.main" : "primary.main",
                 },
                 "&::before": {
                   content: '""',
                   position: "absolute",
-                  left: -26,
-                  top: 22,
-                  width: 12,
-                  height: 12,
+                  left: { xs: -23, sm: -26 },
+                  top: 24,
+                  width: isCurrent ? 14 : 12,
+                  height: isCurrent ? 14 : 12,
                   borderRadius: "50%",
-                  bgcolor: isMostRecent ? "secondary.main" : "grey.500",
+                  bgcolor: isCurrent ? "secondary.main" : "text.disabled",
                   border: "2px solid",
                   borderColor: "background.default",
+                  boxShadow: isCurrent
+                    ? `0 0 0 4px ${theme.palette.secondary.main}22`
+                    : "none",
                 },
-              })}
+              };
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: { xs: "flex-start", sm: "center" },
+                justifyContent: "space-between",
+                gap: 1.5,
+                flexWrap: "wrap",
+              }}
             >
-              <Typography
-                component="h5"
-                variant="h6"
-                fontWeight={700}
-                sx={{ color: isMostRecent ? "text.primary" : "text.secondary" }}
-              >
+              <Typography component="h3" variant="h6" fontWeight={750}>
                 {item.title}
               </Typography>
-              <Typography
-                variant="body2"
-                color={isMostRecent ? "text.primary" : "text.secondary"}
-                sx={{ mb: 1, fontWeight: isMostRecent ? 600 : 400 }}
-              >
-                {item.startDate} - {item.endDate ?? t("experience.present")}
-              </Typography>
-              <Typography variant="body1">{item.description}</Typography>
+              {!item.endDate && (
+                <Chip
+                  label={t("experience.current")}
+                  size="small"
+                  color="secondary"
+                  sx={{ height: 24, fontWeight: 700, fontSize: ".72rem" }}
+                />
+              )}
             </Box>
-          );
-        })}
+            <Typography
+              variant="body2"
+              color="secondary.main"
+              fontWeight={700}
+              sx={{ mb: 1.5 }}
+            >
+              {item.startDate} - {item.endDate ?? t("experience.present")}
+            </Typography>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ lineHeight: 1.8 }}
+            >
+              {item.description}
+            </Typography>
+          </Box>
+        ))}
       </Stack>
     </Box>
   );

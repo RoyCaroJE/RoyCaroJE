@@ -15,6 +15,7 @@ function AppLayout({ toggleTheme, isDark, children }: AppLayoutProps) {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        overflowX: "clip",
       }}
     >
       {/* Header */}

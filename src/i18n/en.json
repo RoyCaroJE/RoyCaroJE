@@ -1,5 +1,11 @@
 {
   "languageSelector": "Language selector",
+  "navigation": {
+    "label": "Main navigation",
+    "intro": "About",
+    "projects": "Projects",
+    "experience": "Experience"
+  },
   "download": "Download CV",
   "title": "Engineering Scalable Apps.",
   "subtitle1": "Clean Code.",
@@ -28,16 +34,17 @@
     "title": "Experience",
     "subtitle": "Recent experience first.",
     "present": "Present",
+    "current": "Current",
     "items": {
       "currentRole": {
         "title": "BESTSELLER - Full Stack Developer & Mentor",
         "description": "Leading frontend and backend mentoring activities as the primary mentor for a new cohort of developers joining the team. I lead the development of an end-to-end automation platform for the sample distribution process used by sales representatives after customer purchases, while working with large datasets, query optimization, critical path analysis, and backend performance improvements across distributed microservices."
       },
-      "previousRole": {
+      "juniorRole": {
         "title": "BESTSELLER - Junior Full Stack Developer",
         "description": "Contributed to business-critical projects including automation of customer order confirmations, value-added customer services, and automatic replenishment of Never Out Of Stock (NOOS) products across retail stores. Implemented monitoring, logging, and synthetic end-to-end testing with Datadog. Acted as a secondary mentor for new trainees, supporting their onboarding and technical growth."
       },
-      "earlierRole": {
+      "traineeRole": {
         "title": "BESTSELLER - Trainee Full Stack Developer",
         "description": "Contributed to React and Spring Boot applications under mentorship, gaining hands-on experience with distributed microservices and cloud-native technologies. Worked with Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL, and MySQL in production environments. Participated in testing, bug fixing, code reviews, and Agile ceremonies while progressively taking ownership of development tasks."
       },

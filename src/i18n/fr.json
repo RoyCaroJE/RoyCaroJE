@@ -1,5 +1,11 @@
 {
   "languageSelector": "Sélecteur de langue",
+  "navigation": {
+    "label": "Navigation principale",
+    "intro": "À propos",
+    "projects": "Projets",
+    "experience": "Expérience"
+  },
   "download": "Télécharger CV",
   "title": "Développement d'applications scalables.",
   "subtitle1": "Code Propre.",
@@ -28,21 +34,22 @@
     "title": "Expérience",
     "subtitle": "Expérience la plus récente en premier.",
     "present": "Aujourd'hui",
+    "current": "En poste",
     "items": {
       "currentRole": {
-        "title": "BESTSELLER - Développeur Full Stack & Mentor",
-        "description": "Je pilote des activités de mentorat frontend et backend en tant que mentor principal d'une nouvelle vague de développeurs qui rejoignent l'équipe. Je dirige le développement d'une plateforme d'automatisation de bout en bout pour le processus de distribution d'échantillons utilisé par les représentants commerciaux après les achats clients, tout en travaillant sur de grands volumes de données, l'optimisation des requêtes, l'analyse des chemins critiques et l'amélioration des performances backend au sein de microservices distribués."
+        "title": "BESTSELLER - Développeur Full Stack et mentor",
+        "description": "Je dirige les activités de mentorat frontend et backend en tant que mentor principal d'une nouvelle promotion de développeurs qui rejoint l'équipe. Je pilote le développement d'une plateforme d'automatisation de bout en bout pour le processus de distribution d'échantillons utilisé par les commerciaux après les achats des clients. Je travaille également sur de grands volumes de données, l'optimisation des requêtes, l'analyse des chemins critiques et l'amélioration des performances backend au sein de microservices distribués."
       },
-      "previousRole": {
+      "juniorRole": {
         "title": "BESTSELLER - Développeur Full Stack Junior",
-        "description": "J'ai contribué à des projets critiques pour l'activité, notamment l'automatisation des confirmations de commande client, les services à valeur ajoutée et la réapprovisionnement automatique des produits Never Out Of Stock (NOOS) dans les magasins. J'ai mis en place la surveillance, la journalisation et des tests de bout en bout synthétiques avec Datadog. J'ai également agi en tant que mentor secondaire pour de nouveaux stagiaires, en soutenant leur intégration et leur développement technique."
+        "description": "J'ai contribué à des projets essentiels pour l'activité, notamment l'automatisation des confirmations de commandes clients, des services à valeur ajoutée et du réapprovisionnement automatique des produits Never Out Of Stock (NOOS) dans les magasins. J'ai mis en place la supervision, la journalisation et des tests synthétiques de bout en bout avec Datadog. J'ai également joué un rôle de mentor secondaire auprès des nouveaux stagiaires, en les accompagnant dans leur intégration et leur progression technique."
       },
-      "earlierRole": {
-        "title": "BESTSELLER - Développeur Full Stack Stagiaire",
-        "description": "J'ai contribué à des applications React et Spring Boot sous supervision, en acquérant une expérience pratique des microservices distribués et des technologies cloud-native. J'ai travaillé avec Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL et MySQL en environnement de production. J'ai participé aux tests, à la correction de bugs, aux revues de code et aux cérémonies Agile tout en prenant progressivement davantage de responsabilités sur les tâches de développement."
+      "traineeRole": {
+        "title": "BESTSELLER - Développeur Full Stack en formation",
+        "description": "J'ai contribué à des applications React et Spring Boot sous la supervision de mentors, en acquérant une expérience pratique des microservices distribués et des technologies cloud-native. J'ai travaillé avec Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL et MySQL en production. J'ai participé aux tests, à la correction de bugs, aux revues de code et aux cérémonies Agile, en prenant progressivement en charge davantage de tâches de développement."
       },
       "internRole": {
-        "title": "NTT DATA Europe & LATAM - Ingénieur Logiciel Stagiaire",
+        "title": "NTT DATA Europe & LATAM - Stagiaire ingénieur logiciel",
         "description": "J'ai développé des processus ETL avec PL/SQL et créé des tableaux de bord métier avec Tableau et Qlik Sense."
       }
     }

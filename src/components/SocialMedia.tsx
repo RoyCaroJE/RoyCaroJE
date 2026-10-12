@@ -34,6 +34,14 @@ export default function SocialMedia() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
+          sx={{
+            color: "text.secondary",
+            transition: "color 160ms ease, transform 160ms ease",
+            "&:hover": {
+              color: "secondary.main",
+              transform: "translateY(-2px)",
+            },
+          }}
         >
           {icon}
         </IconButton>
