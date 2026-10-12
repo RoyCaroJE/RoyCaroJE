@@ -36,16 +36,20 @@
     "present": "Aujourd'hui",
     "items": {
       "currentRole": {
-        "title": "BESTSELLER - Jr. Développeur Full Stack",
-        "description": "Développement et tests d'applications web avec TypeScript, React, Bit Cloud et Jest. Contribution aux micro-services backend en Java avec Spring Boot, en utilisant des outils tels que Docker, Kubernetes, Kafka, RabbitMQ, MySQL et PostgreSQL. Utilisation d'outils d'observabilité comme Datadog (métriques, logs, tests synthétiques) pour surveiller et améliorer les performances des applications. Encadrement de nouveaux stagiaires en les guidant dans les pratiques de développement backend, les processus d'équipe et les workflows d'ingénierie."
+        "title": "BESTSELLER - Développeur Full Stack et mentor",
+        "description": "Je dirige les activités de mentorat frontend et backend en tant que mentor principal d'une nouvelle promotion de développeurs qui rejoint l'équipe. Je pilote le développement d'une plateforme d'automatisation de bout en bout pour le processus de distribution d'échantillons utilisé par les commerciaux après les achats des clients. Je travaille également sur de grands volumes de données, l'optimisation des requêtes, l'analyse des chemins critiques et l'amélioration des performances backend au sein de microservices distribués."
       },
-      "previousRole": {
-        "title": "NTT Data Europe Latam - Ingénieur Logiciel Stagiaire",
-        "description": "Utilisation de PL/SQL pour les processus ETL. Création de tableaux de bord visuels avec Tableau et Qlik Sense. Support aux tâches assignées par le superviseur et participation aux réunions avec comptes rendus de suivi."
+      "juniorRole": {
+        "title": "BESTSELLER - Développeur Full Stack Junior",
+        "description": "J'ai contribué à des projets essentiels pour l'activité, notamment l'automatisation des confirmations de commandes clients, des services à valeur ajoutée et du réapprovisionnement automatique des produits Never Out Of Stock (NOOS) dans les magasins. J'ai mis en place la supervision, la journalisation et des tests synthétiques de bout en bout avec Datadog. J'ai également joué un rôle de mentor secondaire auprès des nouveaux stagiaires, en les accompagnant dans leur intégration et leur progression technique."
       },
-      "earlierRole": {
-        "title": "Poste Antérieur",
-        "description": "Principales responsabilités, technologies utilisées et impact obtenu."
+      "traineeRole": {
+        "title": "BESTSELLER - Développeur Full Stack en formation",
+        "description": "J'ai contribué à des applications React et Spring Boot sous la supervision de mentors, en acquérant une expérience pratique des microservices distribués et des technologies cloud-native. J'ai travaillé avec Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL et MySQL en production. J'ai participé aux tests, à la correction de bugs, aux revues de code et aux cérémonies Agile, en prenant progressivement en charge davantage de tâches de développement."
+      },
+      "internRole": {
+        "title": "NTT DATA Europe & LATAM - Stagiaire ingénieur logiciel",
+        "description": "J'ai développé des processus ETL avec PL/SQL et créé des tableaux de bord métier avec Tableau et Qlik Sense."
       }
     }
   }
