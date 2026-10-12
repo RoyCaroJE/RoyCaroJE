@@ -1,5 +1,11 @@
 {
   "languageSelector": "Language selector",
+  "navigation": {
+    "label": "Main navigation",
+    "intro": "About",
+    "projects": "Projects",
+    "experience": "Experience"
+  },
   "download": "Download CV",
   "title": "Engineering Scalable Apps.",
   "subtitle1": "Clean Code.",

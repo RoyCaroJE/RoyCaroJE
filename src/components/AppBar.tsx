@@ -1,4 +1,4 @@
-import AppBar from "@mui/material/AppBar";
+import MuiAppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -30,84 +30,163 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
   };
 
   const currentLanguage = i18n.language.split("-")[0] as Language;
+  const navigationLinks = [
+    { href: "#intro", label: t("navigation.intro") },
+    { href: "#projects", label: t("navigation.projects") },
+    { href: "#experience", label: t("navigation.experience") },
+  ];
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "primary.dark" }}
-        enableColorOnDark
+    <MuiAppBar
+      position="sticky"
+      enableColorOnDark
+      sx={{
+        top: 0,
+        zIndex: (theme) => theme.zIndex.appBar,
+        color: "text.primary",
+        bgcolor: isDark ? "rgba(16, 23, 20, 0.88)" : "rgba(249, 250, 247, 0.9)",
+        boxShadow: "none",
+        borderBottom: "1px solid",
+        borderColor: "divider",
+        backdropFilter: "blur(18px)",
+      }}
+    >
+      <Toolbar
+        sx={{
+          width: "100%",
+          maxWidth: 1200,
+          mx: "auto",
+          minHeight: { xs: 62, md: 72 },
+          px: { xs: 2, sm: 3 },
+          display: "flex",
+          justifyContent: "space-between",
+          gap: 2,
+        }}
       >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-            <img
-              src={isDark ? "./logo_white.svg" : "./logo_black.svg"}
-              width="25"
-              height="25"
-              alt="Jean Edouard's Web Logo"
-            />
-            <Typography sx={{ fontWeight: 700 }}>
-              Jean Edouard Roy Caro
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Select
-              value={currentLanguage}
-              onChange={handleLanguageChange}
-              size="small"
-              variant="outlined"
-              inputProps={{
-                "aria-label": t("languageSelector"),
-              }}
-              renderValue={(value) => (
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  {LANGUAGE_TO_FLAG[value as Language]}
-                </Box>
-              )}
-              sx={{
-                minWidth: 60,
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "inherit",
-                },
-              }}
-            >
-              <MenuItem value="es">
-                <Box component="span">🇪🇸</Box>
-                <Box sx={{ ml: 1 }}>Español</Box>
-              </MenuItem>
-
-              <MenuItem value="en">
-                <Box component="span">🇬🇧</Box>
-                <Box sx={{ ml: 1 }}>English</Box>
-              </MenuItem>
-
-              <MenuItem value="fr">
-                <Box component="span">🇫🇷</Box>
-                <Box sx={{ ml: 1 }}>Français</Box>
-              </MenuItem>
-            </Select>
-            <Button
-              color="inherit"
-              onClick={toggleTheme}
-              aria-label={isDark ? "Light Mode" : "Dark Mode"}
-              sx={{
-                minWidth: 40,
-                "&:hover svg": {
-                  transform: "rotate(20deg) scale(1.2)",
-                },
-              }}
-            >
-              {!isDark ? <LightModeIcon /> : <DarkModeIcon />}
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        <Box
+          component="a"
+          href="#intro"
+          aria-label="Jean Edouard Roy Caro — home"
+          sx={{
+            display: "flex",
+            gap: 1.25,
+            alignItems: "center",
+            color: "inherit",
+            textDecoration: "none",
+            minWidth: 0,
+          }}
+        >
+          <img
+            src={isDark ? "/logo_white.svg" : "/logo_black.svg"}
+            width="30"
+            height="30"
+            alt=""
+          />
+          <Typography
+            sx={{
+              fontWeight: 750,
+              fontSize: { xs: ".88rem", sm: "1rem" },
+              whiteSpace: "nowrap",
+            }}
+          >
+            Jean Edouard Roy Caro
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 0.25, sm: 1 },
+          }}
+        >
+          <Select
+            value={currentLanguage}
+            onChange={handleLanguageChange}
+            size="small"
+            variant="outlined"
+            inputProps={{ "aria-label": t("languageSelector") }}
+            renderValue={(value) => (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  fontSize: "1.1rem",
+                }}
+              >
+                {LANGUAGE_TO_FLAG[value as Language]}
+              </Box>
+            )}
+            sx={{
+              minWidth: 52,
+              "& .MuiSelect-select": { py: 0.75, px: 1 },
+              "& .MuiOutlinedInput-notchedOutline": { borderColor: "divider" },
+            }}
+          >
+            <MenuItem value="es">
+              <Box component="span">🇪🇸</Box>
+              <Box sx={{ ml: 1 }}>Español</Box>
+            </MenuItem>
+            <MenuItem value="en">
+              <Box component="span">🇬🇧</Box>
+              <Box sx={{ ml: 1 }}>English</Box>
+            </MenuItem>
+            <MenuItem value="fr">
+              <Box component="span">🇫🇷</Box>
+              <Box sx={{ ml: 1 }}>Français</Box>
+            </MenuItem>
+          </Select>
+          <Button
+            color="inherit"
+            onClick={toggleTheme}
+            aria-label={isDark ? "Light Mode" : "Dark Mode"}
+            sx={{
+              minWidth: 40,
+              width: 40,
+              height: 40,
+              px: 0,
+              borderRadius: "50%",
+              "&:hover svg": { transform: "rotate(20deg) scale(1.12)" },
+              "& svg": { transition: "transform 180ms ease" },
+            }}
+          >
+            {!isDark ? <LightModeIcon /> : <DarkModeIcon />}
+          </Button>
+        </Box>
+      </Toolbar>
+      <Box
+        component="nav"
+        aria-label={t("navigation.label")}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: { xs: 0.5, sm: 1.5 },
+          px: 1.5,
+          pb: 1,
+          overflowX: "auto",
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": { display: "none" },
+        }}
+      >
+        {navigationLinks.map(({ href, label }) => (
+          <Button
+            key={href}
+            component="a"
+            href={href}
+            color="inherit"
+            size="small"
+            sx={{
+              flexShrink: 0,
+              px: { xs: 1.5, sm: 2 },
+              py: 0.65,
+              color: "text.secondary",
+              fontSize: ".86rem",
+              "&:hover": { color: "secondary.main", bgcolor: "action.hover" },
+            }}
+          >
+            {label}
+          </Button>
+        ))}
+      </Box>
+    </MuiAppBar>
   );
 }

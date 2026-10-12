@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TechStack from "./techstack/TechStack";
 import { useTranslation } from "react-i18next";
@@ -9,24 +9,114 @@ const ME_IMAGE_FALLBACK = "/me.jpg";
 
 function Presentation() {
   const { t } = useTranslation();
-  const theme = useTheme();
   return (
     <Grid
+      component="section"
+      id="intro"
+      aria-labelledby="intro-heading"
       container
+      className="motion-in"
       sx={{
-        paddingTop: { xs: 2, md: 4 },
-        paddingBottom: { xs: 2, md: 4 },
+        alignItems: "center",
+        overflow: "hidden",
+        position: "relative",
+        isolation: "isolate",
+        borderRadius: { xs: 4, md: 6 },
+        border: "1px solid",
+        borderColor: "divider",
+        bgcolor: "background.paper",
+        p: { xs: 2.5, sm: 4, md: 6 },
+        boxShadow: (theme) =>
+          theme.palette.mode === "dark"
+            ? "0 28px 80px rgba(0,0,0,.22)"
+            : "0 28px 80px rgba(29,61,48,.08)",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          width: 420,
+          height: 420,
+          right: { xs: -210, md: 30 },
+          top: -250,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(22,131,109,.16), transparent 70%)",
+          zIndex: -1,
+          pointerEvents: "none",
+        },
       }}
     >
+      <Grid size={{ xs: 12, md: 7 }}>
+        <Stack spacing={{ xs: 2, md: 2.5 }} sx={{ pr: { md: 3 } }}>
+          <Typography
+            component="p"
+            variant="overline"
+            sx={{
+              color: "secondary.main",
+              fontWeight: 800,
+              letterSpacing: ".18em",
+            }}
+          >
+            {t("subtitle1")}
+          </Typography>
+          <Typography
+            id="intro-heading"
+            component="h1"
+            variant="h1"
+            sx={{
+              fontSize: "clamp(2.65rem, 6vw, 5rem)",
+              lineHeight: 1.02,
+              maxWidth: "11ch",
+            }}
+          >
+            {t("title")}
+          </Typography>
+          <Typography
+            component="p"
+            sx={{
+              color: "text.secondary",
+              fontWeight: 600,
+              fontSize: { xs: "1.15rem", md: "1.35rem" },
+              m: 0,
+            }}
+          >
+            {t("subtitle2")}
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              lineHeight: 1.8,
+              maxWidth: "62ch",
+              color: "text.secondary",
+              fontSize: { xs: "1rem", md: "1.05rem" },
+            }}
+          >
+            {t("presentation_text")}
+          </Typography>
+          <TechStack />
+        </Stack>
+      </Grid>
       <Grid
-        size={{ xs: 12, md: 4 }}
-        display="flex"
+        size={{ xs: 12, md: 5 }}
         sx={{
-          justifyContent: "center",
-          alignItems: "center",
+          display: "flex",
+          justifyContent: { xs: "center", md: "flex-end" },
+          mt: { xs: 3, md: 0 },
         }}
       >
-        <Stack direction="column">
+        <Box
+          sx={{
+            position: "relative",
+            width: { xs: "min(100%, 330px)", md: "min(100%, 370px)" },
+            p: 1.5,
+            borderRadius: 5,
+            bgcolor: "background.default",
+            border: "1px solid",
+            borderColor: "divider",
+            transform: { md: "rotate(2deg)" },
+            transition: "transform 250ms ease",
+            "&:hover": { transform: { md: "rotate(0deg) translateY(-4px)" } },
+          }}
+        >
           <picture>
             <source
               type="image/webp"
@@ -36,14 +126,13 @@ function Presentation() {
             <img
               src={ME_IMAGE_FALLBACK}
               alt="Jean Edouard Roy Caro"
-              width={350}
-              height={350}
+              width={370}
+              height={430}
               style={{
-                width: 350,
-                height: 350,
-                borderRadius: "50%",
-                boxShadow: "0px 4px 12px rgba(0,0,0,0.25)",
-                border: `4px solid ${theme.palette.secondary.main}`,
+                width: "100%",
+                height: "auto",
+                aspectRatio: "0.86",
+                borderRadius: 24,
                 objectFit: "cover",
               }}
               fetchPriority="high"
@@ -51,63 +140,6 @@ function Presentation() {
               decoding="sync"
             />
           </picture>
-        </Stack>
-      </Grid>
-      <Grid size={{ xs: 12, md: 8 }} alignItems="center">
-        <Box paddingLeft={{ xs: 0, md: 5 }}>
-          <Typography
-            variant="h2"
-            fontWeight={800}
-            sx={{
-              letterSpacing: "-0.02em",
-              lineHeight: 1.1,
-              fontSize: {
-                xs: "3.25rem",
-                md: "3.75rem",
-              },
-            }}
-          >
-            {t("title")}
-          </Typography>
-          <Typography
-            variant="h3"
-            fontWeight={400}
-            sx={{ mt: 1, color: "text.secondary" }}
-          >
-            {t("subtitle1") + " "}
-            <Box
-              component="span"
-              sx={{
-                color: "secondary.main",
-                fontWeight: 600,
-                display: "inline-block",
-                animation: "vibes 4s ease-in-out infinite",
-                "@keyframes vibes": {
-                  "0%": { transform: "translateY(0)" },
-                  "25%": { transform: "translateY(-4px)" },
-                  "50%": { transform: "translateY(2px)" },
-                  "75%": { transform: "translateY(-2px)" },
-                  "100%": { transform: "translateY(0)" },
-                },
-                willChange: "transform",
-              }}
-            >
-              {t("subtitle2")}
-            </Box>
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              lineHeight: 1.6,
-              textAlign: "justify",
-              fontSize: "1.1rem",
-              paddingTop: 2,
-            }}
-          >
-            {t("presentation_text")}
-          </Typography>
-          <TechStack />
         </Box>
       </Grid>
     </Grid>

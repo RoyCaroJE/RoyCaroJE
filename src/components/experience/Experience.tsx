@@ -44,8 +44,20 @@ function Experience() {
   }));
 
   return (
-    <Box component="section" sx={{ py: { xs: 2, md: 3 } }}>
-      <Typography variant="h4" fontWeight={700} gutterBottom>
+    <Box
+      component="section"
+      id="experience"
+      aria-labelledby="experience-heading"
+      className="motion-in"
+      sx={{ py: { xs: 4, md: 6 }, scrollMarginTop: "120px" }}
+    >
+      <Typography
+        id="experience-heading"
+        component="h2"
+        variant="h4"
+        sx={{ fontSize: { xs: "2rem", md: "2.6rem" } }}
+        gutterBottom
+      >
         {t("experience.title")}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
@@ -56,15 +68,16 @@ function Experience() {
         spacing={2}
         sx={{
           position: "relative",
-          pl: 4,
+          pl: { xs: 3, sm: 4 },
           "&::before": {
             content: '""',
             position: "absolute",
-            left: 11,
-            top: 8,
-            bottom: 8,
+            left: { xs: 7, sm: 11 },
+            top: 10,
+            bottom: 10,
             width: 2,
-            bgcolor: "divider",
+            background: (theme) =>
+              `linear-gradient(${theme.palette.secondary.main}, ${theme.palette.divider})`,
           },
         }}
       >
@@ -73,16 +86,21 @@ function Experience() {
             key={`${item.title}-${item.startDate}`}
             sx={{
               position: "relative",
-              p: 2,
-              borderRadius: 2,
+              p: { xs: 2, sm: 3 },
+              borderRadius: 3,
               bgcolor: "background.paper",
               border: "1px solid",
               borderColor: "divider",
+              transition: "border-color 180ms ease, transform 180ms ease",
+              "&:hover": {
+                borderColor: "secondary.main",
+                transform: "translateX(4px)",
+              },
               "&::before": {
                 content: '""',
                 position: "absolute",
-                left: -26,
-                top: 22,
+                left: { xs: -23, sm: -26 },
+                top: 24,
                 width: 12,
                 height: 12,
                 borderRadius: "50%",
@@ -92,13 +110,24 @@ function Experience() {
               },
             }}
           >
-            <Typography component="h5" variant="h6" fontWeight={700}>
+            <Typography component="h3" variant="h6" fontWeight={750}>
               {item.title}
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+            <Typography
+              variant="body2"
+              color="secondary.main"
+              fontWeight={700}
+              sx={{ mb: 1.5 }}
+            >
               {item.startDate} - {item.endDate ?? t("experience.present")}
             </Typography>
-            <Typography variant="body1">{item.description}</Typography>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ lineHeight: 1.8 }}
+            >
+              {item.description}
+            </Typography>
           </Box>
         ))}
       </Stack>

@@ -1,5 +1,11 @@
 {
   "languageSelector": "Selector de idioma",
+  "navigation": {
+    "label": "Navegación principal",
+    "intro": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia"
+  },
   "download": "Descargar CV",
   "title": "Desarrollando aplicaciones escalables.",
   "subtitle1": "Código Limpio.",

@@ -46,15 +46,27 @@ function Projects() {
   }));
 
   return (
-    <Box component="section" sx={{ py: { xs: 2, md: 3 } }}>
-      <Typography variant="h4" fontWeight={700} gutterBottom>
+    <Box
+      component="section"
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="motion-in"
+      sx={{ py: { xs: 4, md: 6 }, scrollMarginTop: "120px" }}
+    >
+      <Typography
+        id="projects-heading"
+        component="h2"
+        variant="h4"
+        sx={{ fontSize: { xs: "2rem", md: "2.6rem" } }}
+        gutterBottom
+      >
         {t("projects.title")}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
         {t("projects.subtitle")}
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={{ xs: 2, md: 3 }}>
         {projectCards.map((project) => (
           <Grid key={project.title} size={{ xs: 12, md: 6, lg: 4 }}>
             <ProjectCard {...project} />
