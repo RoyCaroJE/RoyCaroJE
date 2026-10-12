@@ -2,6 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TechStack from "./techstack/TechStack";
 import { useTranslation } from "react-i18next";
+import { useEffect, useRef } from "react";
 
 const ME_IMAGE_WEBP_SRCSET =
   "/optimized/me-342.webp 342w, /optimized/me-684.webp 684w";
@@ -9,6 +10,59 @@ const ME_IMAGE_FALLBACK = "/me.jpg";
 
 function Presentation() {
   const { t } = useTranslation();
+  const vibesTextRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const element = vibesTextRef.current;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+
+    if (!element || prefersReducedMotion.matches) return;
+
+    let animation: Animation | undefined;
+    let cancelled = false;
+    const restingTransform = "translate3d(0, 0, 0) rotate(0deg)";
+
+    const drift = () => {
+      if (cancelled) return;
+
+      const x = (Math.random() - 0.5) * 6;
+      const y = (Math.random() - 0.5) * 8;
+      const rotation = (Math.random() - 0.5) * 1.6;
+      const driftTransform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
+
+      animation = element.animate(
+        [{ transform: restingTransform }, { transform: driftTransform }],
+        {
+          duration: 1800 + Math.random() * 1800,
+          easing: "ease-in-out",
+          fill: "forwards",
+        },
+      );
+      animation.onfinish = () => {
+        if (cancelled) return;
+
+        animation = element.animate(
+          [{ transform: driftTransform }, { transform: restingTransform }],
+          {
+            duration: 1600 + Math.random() * 1600,
+            easing: "ease-in-out",
+            fill: "forwards",
+          },
+        );
+        animation.onfinish = () => drift();
+      };
+    };
+
+    drift();
+
+    return () => {
+      cancelled = true;
+      animation?.cancel();
+    };
+  }, []);
+
   return (
     <Grid
       component="section"
@@ -79,7 +133,18 @@ function Presentation() {
               m: 0,
             }}
           >
-            {t("subtitle2")}
+            <Box
+              component="span"
+              ref={vibesTextRef}
+              sx={{
+                display: "inline-block",
+                color: "secondary.main",
+                transformOrigin: "center",
+                willChange: "transform",
+              }}
+            >
+              {t("subtitle2")}
+            </Box>
           </Typography>
           <Typography
             variant="body1"
