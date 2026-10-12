@@ -3,14 +3,16 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Paper from "@mui/material/Paper";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import TranslateIcon from "@mui/icons-material/Translate";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckIcon from "@mui/icons-material/Check";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface AppProps {
@@ -28,8 +30,8 @@ const LANGUAGES: { code: Language; flag: string; label: string }[] = [
 
 export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
   const { i18n, t } = useTranslation();
-  const [languageMenuAnchor, setLanguageMenuAnchor] =
-    useState<HTMLElement | null>(null);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const languageButtonRef = useRef<HTMLButtonElement>(null);
 
   const currentLanguage = i18n.language.split("-")[0] as Language;
   const activeLanguage =
@@ -143,92 +145,108 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
             justifySelf: "end",
           }}
         >
-          <Button
-            color="inherit"
-            size="small"
-            variant="outlined"
-            onClick={(event) => setLanguageMenuAnchor(event.currentTarget)}
-            aria-label={t("languageSelector")}
-            aria-haspopup="menu"
-            aria-expanded={Boolean(languageMenuAnchor)}
-            aria-controls={languageMenuAnchor ? "language-menu" : undefined}
-            sx={{
-              minWidth: { xs: 44, sm: 78 },
-              px: { xs: 0.5, sm: 1 },
-              py: 0.75,
-              borderColor: "divider",
-              borderRadius: 999,
-              color: "text.secondary",
-              fontSize: { xs: ".65rem", sm: ".78rem" },
-              "&:hover": {
-                borderColor: "secondary.main",
-                bgcolor: "action.hover",
-              },
-            }}
-          >
-            <TranslateIcon sx={{ fontSize: { xs: 15, sm: 17 }, mr: 0.5 }} />
-            {activeLanguage.code.toUpperCase()}
-            <KeyboardArrowDownIcon
-              sx={{
-                display: { xs: "none", sm: "block" },
-                fontSize: 18,
-                ml: 0.25,
+          <ClickAwayListener onClickAway={() => setIsLanguageMenuOpen(false)}>
+            <Box
+              sx={{ position: "relative" }}
+              onKeyDown={(event) => {
+                if (event.key === "Escape") {
+                  setIsLanguageMenuOpen(false);
+                  languageButtonRef.current?.focus();
+                }
               }}
-            />
-          </Button>
-          <Menu
-            id="language-menu"
-            anchorEl={languageMenuAnchor}
-            open={Boolean(languageMenuAnchor)}
-            onClose={() => setLanguageMenuAnchor(null)}
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-            slotProps={{
-              paper: {
-                sx: {
-                  mt: 1,
-                  minWidth: 176,
-                  border: "1px solid",
+            >
+              <Button
+                ref={languageButtonRef}
+                color="inherit"
+                size="small"
+                variant="outlined"
+                onClick={() => setIsLanguageMenuOpen((open) => !open)}
+                aria-label={t("languageSelector")}
+                aria-haspopup="menu"
+                aria-expanded={isLanguageMenuOpen}
+                aria-controls={isLanguageMenuOpen ? "language-menu" : undefined}
+                sx={{
+                  minWidth: { xs: 44, sm: 78 },
+                  px: { xs: 0.5, sm: 1 },
+                  py: 0.75,
                   borderColor: "divider",
-                  borderRadius: 2.5,
-                  boxShadow: (theme) =>
-                    theme.palette.mode === "dark"
-                      ? "0 16px 40px rgba(0,0,0,.35)"
-                      : "0 16px 40px rgba(29,61,48,.14)",
-                },
-              },
-            }}
-          >
-            {LANGUAGES.map(({ code, flag, label }) => (
-              <MenuItem
-                key={code}
-                selected={currentLanguage === code}
-                onClick={() => {
-                  void i18n.changeLanguage(code);
-                  setLanguageMenuAnchor(null);
+                  borderRadius: 999,
+                  color: "text.secondary",
+                  fontSize: { xs: ".65rem", sm: ".78rem" },
+                  "&:hover": {
+                    borderColor: "secondary.main",
+                    bgcolor: "action.hover",
+                  },
                 }}
-                sx={{ gap: 1.25, py: 1.1 }}
               >
-                <Box
-                  component="span"
-                  aria-hidden="true"
-                  sx={{ fontSize: "1.1rem", lineHeight: 1 }}
+                <TranslateIcon sx={{ fontSize: { xs: 15, sm: 17 }, mr: 0.5 }} />
+                {activeLanguage.code.toUpperCase()}
+                <KeyboardArrowDownIcon
+                  sx={{
+                    display: { xs: "none", sm: "block" },
+                    fontSize: 18,
+                    ml: 0.25,
+                    transform: isLanguageMenuOpen ? "rotate(180deg)" : "none",
+                    transition: "transform 160ms ease",
+                  }}
+                />
+              </Button>
+              {isLanguageMenuOpen && (
+                <Paper
+                  elevation={0}
+                  sx={{
+                    position: "absolute",
+                    top: "calc(100% + 8px)",
+                    right: 0,
+                    zIndex: (theme) => theme.zIndex.appBar + 1,
+                    minWidth: 176,
+                    border: "1px solid",
+                    borderColor: "divider",
+                    borderRadius: 2.5,
+                    boxShadow: (theme) =>
+                      theme.palette.mode === "dark"
+                        ? "0 16px 40px rgba(0,0,0,.35)"
+                        : "0 16px 40px rgba(29,61,48,.14)",
+                  }}
                 >
-                  {flag}
-                </Box>
-                <Typography
-                  component="span"
-                  variant="body2"
-                  sx={{ flex: 1, fontWeight: 550 }}
-                >
-                  {label}
-                </Typography>
-                {currentLanguage === code && (
-                  <CheckIcon fontSize="small" color="secondary" />
-                )}
-              </MenuItem>
-            ))}
-          </Menu>
+                  <MenuList
+                    id="language-menu"
+                    aria-label={t("languageSelector")}
+                  >
+                    {LANGUAGES.map(({ code, flag, label }) => (
+                      <MenuItem
+                        key={code}
+                        selected={currentLanguage === code}
+                        onClick={() => {
+                          void i18n.changeLanguage(code);
+                          setIsLanguageMenuOpen(false);
+                        }}
+                        sx={{ gap: 1.25, py: 1.1 }}
+                      >
+                        <Box
+                          component="span"
+                          aria-hidden="true"
+                          sx={{ fontSize: "1.1rem", lineHeight: 1 }}
+                        >
+                          {flag}
+                        </Box>
+                        <Typography
+                          component="span"
+                          variant="body2"
+                          sx={{ flex: 1, fontWeight: 550 }}
+                        >
+                          {label}
+                        </Typography>
+                        {currentLanguage === code && (
+                          <CheckIcon fontSize="small" color="secondary" />
+                        )}
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </Paper>
+              )}
+            </Box>
+          </ClickAwayListener>
           <Button
             color="inherit"
             onClick={toggleTheme}
