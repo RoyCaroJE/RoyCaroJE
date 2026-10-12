@@ -8,8 +8,8 @@ function Home() {
     <Container maxWidth="lg" sx={{ py: { xs: 2, md: 5 } }}>
       <Stack spacing={{ xs: 1, md: 2 }}>
         <Presentation />
-        <Experience />
         <Projects />
+        <Experience />
       </Stack>
     </Container>
   );
