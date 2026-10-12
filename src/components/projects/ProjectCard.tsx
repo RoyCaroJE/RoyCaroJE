@@ -58,7 +58,7 @@ function ProjectCard({
         <source
           type="image/webp"
           srcSet={imageWebpSrcSet}
-          sizes="(max-width: 900px) 100vw, (max-width: 1200px) 50vw, 380px"
+          sizes="(max-width: 599px) calc(100vw - 32px), (max-width: 899px) calc(100vw - 48px), (max-width: 1199px) calc((100vw - 72px) / 2), 360px"
         />
         <Box
           component="img"
@@ -66,8 +66,8 @@ function ProjectCard({
           alt={title}
           loading="lazy"
           decoding="async"
-          width={400}
-          height={180}
+          width={380}
+          height={220}
           sx={{
             width: "100%",
             display: "block",

@@ -186,7 +186,7 @@ function Presentation() {
             <source
               type="image/webp"
               srcSet={ME_IMAGE_WEBP_SRCSET}
-              sizes="(max-width: 900px) 280px, 342px"
+              sizes="(max-width: 599px) 330px, (max-width: 899px) 280px, 370px"
             />
             <img
               src={ME_IMAGE_FALLBACK}
@@ -194,6 +194,7 @@ function Presentation() {
               width={370}
               height={430}
               style={{
+                display: "block",
                 width: "100%",
                 height: "auto",
                 aspectRatio: "0.86",
@@ -202,7 +203,7 @@ function Presentation() {
               }}
               fetchPriority="high"
               loading="eager"
-              decoding="sync"
+              decoding="async"
             />
           </picture>
         </Box>
