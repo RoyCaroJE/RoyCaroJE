@@ -57,10 +57,10 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           maxWidth: 1200,
           mx: "auto",
           minHeight: { xs: 62, md: 72 },
-          px: { xs: 2, sm: 3 },
+          px: { xs: 1.25, sm: 3 },
           display: "flex",
           justifyContent: "space-between",
-          gap: 2,
+          gap: { xs: 0.25, sm: 2 },
         }}
       >
         <Box
@@ -69,7 +69,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           aria-label="Jean Edouard Roy Caro — home"
           sx={{
             display: "flex",
-            gap: 1.25,
+            gap: { xs: 0, sm: 1.25 },
             alignItems: "center",
             color: "inherit",
             textDecoration: "none",
@@ -84,6 +84,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           />
           <Typography
             sx={{
+              display: { xs: "none", sm: "block" },
               fontWeight: 750,
               fontSize: { xs: ".88rem", sm: "1rem" },
               whiteSpace: "nowrap",
@@ -93,10 +94,48 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           </Typography>
         </Box>
         <Box
+          component="nav"
+          aria-label={t("navigation.label")}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flex: 1,
+            minWidth: 0,
+            gap: { xs: 0, sm: 0.5 },
+            overflowX: "auto",
+            scrollbarWidth: "none",
+            "&::-webkit-scrollbar": { display: "none" },
+          }}
+        >
+          {navigationLinks.map(({ href, label }) => (
+            <Button
+              key={href}
+              component="a"
+              href={href}
+              color="inherit"
+              size="small"
+              sx={{
+                flexShrink: 0,
+                minWidth: 0,
+                px: { xs: 0.6, sm: 1.5 },
+                py: 0.65,
+                color: "text.secondary",
+                fontSize: { xs: ".68rem", sm: ".86rem" },
+                whiteSpace: "nowrap",
+                "&:hover": { color: "secondary.main", bgcolor: "action.hover" },
+              }}
+            >
+              {label}
+            </Button>
+          ))}
+        </Box>
+        <Box
           sx={{
             display: "flex",
             alignItems: "center",
             gap: { xs: 0.25, sm: 1 },
+            flexShrink: 0,
           }}
         >
           <Select
@@ -153,40 +192,6 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           </Button>
         </Box>
       </Toolbar>
-      <Box
-        component="nav"
-        aria-label={t("navigation.label")}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          gap: { xs: 0.5, sm: 1.5 },
-          px: 1.5,
-          pb: 1,
-          overflowX: "auto",
-          scrollbarWidth: "none",
-          "&::-webkit-scrollbar": { display: "none" },
-        }}
-      >
-        {navigationLinks.map(({ href, label }) => (
-          <Button
-            key={href}
-            component="a"
-            href={href}
-            color="inherit"
-            size="small"
-            sx={{
-              flexShrink: 0,
-              px: { xs: 1.5, sm: 2 },
-              py: 0.65,
-              color: "text.secondary",
-              fontSize: ".86rem",
-              "&:hover": { color: "secondary.main", bgcolor: "action.hover" },
-            }}
-          >
-            {label}
-          </Button>
-        ))}
-      </Box>
     </MuiAppBar>
   );
 }
