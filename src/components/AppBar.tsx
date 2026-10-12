@@ -58,9 +58,9 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           mx: "auto",
           minHeight: { xs: 62, md: 72 },
           px: { xs: 1.25, sm: 3 },
-          display: "flex",
-          justifyContent: "space-between",
-          gap: { xs: 0.25, sm: 2 },
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr) auto minmax(0, 1fr)",
+          alignItems: "center",
         }}
       >
         <Box
@@ -84,7 +84,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
           />
           <Typography
             sx={{
-              display: { xs: "none", sm: "block" },
+              display: { xs: "none", md: "block" },
               fontWeight: 750,
               fontSize: { xs: ".88rem", sm: "1rem" },
               whiteSpace: "nowrap",
@@ -100,7 +100,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            flex: 1,
+            flex: "none",
             minWidth: 0,
             gap: { xs: 0, sm: 0.5 },
             overflowX: "auto",
@@ -136,6 +136,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
             alignItems: "center",
             gap: { xs: 0.25, sm: 1 },
             flexShrink: 0,
+            justifySelf: "end",
           }}
         >
           <Select
