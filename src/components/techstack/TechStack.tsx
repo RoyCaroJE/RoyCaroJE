@@ -20,15 +20,16 @@ export default function TechStack() {
       display="flex"
       justifyContent="flex-start"
       alignItems="center"
-      gap={{ xs: 1.5, sm: 2 }}
+      gap={{ xs: 1.5, md: 1, lg: 1.5 }}
       mt={1}
-      flexWrap="wrap"
+      flexWrap={{ xs: "wrap", md: "nowrap" }}
       sx={{
         color: "text.secondary",
-        maxWidth: 470,
+        width: "100%",
+        maxWidth: "100%",
         "& svg": {
-          width: { xs: 30, sm: ICON_SIZE },
-          height: { xs: 30, sm: ICON_SIZE },
+          width: { xs: 30, md: 34, lg: ICON_SIZE },
+          height: { xs: 30, md: 34, lg: ICON_SIZE },
           transition: "transform 180ms ease, color 180ms ease",
         },
         "& svg:hover": {
