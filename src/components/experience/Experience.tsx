@@ -77,7 +77,7 @@ function Experience() {
           "&::before": {
             content: '""',
             position: "absolute",
-            left: { xs: 7, sm: 11 },
+            left: { xs: 8, sm: 12 },
             top: 10,
             bottom: 10,
             width: 2,
@@ -113,11 +113,12 @@ function Experience() {
                 "&::before": {
                   content: '""',
                   position: "absolute",
-                  left: { xs: -23, sm: -26 },
+                  left: { xs: -16, sm: -20 },
                   top: 24,
                   width: isCurrent ? 14 : 12,
                   height: isCurrent ? 14 : 12,
                   borderRadius: "50%",
+                  transform: "translateX(-50%)",
                   bgcolor: isCurrent ? "secondary.main" : "text.disabled",
                   border: "2px solid",
                   borderColor: "background.default",
