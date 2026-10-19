@@ -8,11 +8,11 @@ interface EducationItem {
 
 const EDUCATION: EducationItem[] = [
   {
-    id: "bachelors",
-  },
-  {
     id: "masters",
     current: true,
+  },
+  {
+    id: "bachelors",
   },
 ];
 
