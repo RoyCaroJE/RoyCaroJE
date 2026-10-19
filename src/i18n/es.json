@@ -4,7 +4,8 @@
     "label": "Navegación principal",
     "intro": "Sobre mí",
     "projects": "Proyectos",
-    "experience": "Experiencia"
+    "experience": "Experiencia",
+    "education": "Formación"
   },
   "download": "Descargar CV",
   "title": "Desarrollando aplicaciones escalables.",
@@ -51,6 +52,23 @@
       "internRole": {
         "title": "NTT DATA Europe & LATAM - Becario de Ingeniería de Software",
         "description": "Desarrollé procesos ETL con PL/SQL y creé cuadros de mando empresariales con Tableau y Qlik Sense."
+      }
+    }
+  },
+  "education": {
+    "title": "Formación",
+    "subtitle": "Trayectoria académica.",
+    "current": "Actual",
+    "items": {
+      "bachelors": {
+        "degree": "Grado en Ingeniería del Software",
+        "institution": "UMA - Universidad de Málaga",
+        "dates": "2019 – 2024"
+      },
+      "masters": {
+        "degree": "Máster en DevOps y Cloud Computing",
+        "institution": "UNIR - Universidad Internacional de La Rioja",
+        "dates": "2026 – Actualidad"
       }
     }
   }

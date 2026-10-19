@@ -4,7 +4,8 @@
     "label": "Main navigation",
     "intro": "About",
     "projects": "Projects",
-    "experience": "Experience"
+    "experience": "Experience",
+    "education": "Education"
   },
   "download": "Download CV",
   "title": "Engineering Scalable Apps.",
@@ -51,6 +52,23 @@
       "internRole": {
         "title": "NTT DATA Europe & LATAM - Software Engineer Intern",
         "description": "Developed ETL processes using PL/SQL and built business dashboards with Tableau and Qlik Sense."
+      }
+    }
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "Academic background.",
+    "current": "Current",
+    "items": {
+      "bachelors": {
+        "degree": "Bachelor's in Software Engineering",
+        "institution": "UMA - University of Málaga",
+        "dates": "2019 – 2024"
+      },
+      "masters": {
+        "degree": "Master's in DevOps & Cloud Computing",
+        "institution": "UNIR - Universidad Internacional de La Rioja",
+        "dates": "2026 – Present"
       }
     }
   }

@@ -1,6 +1,7 @@
 import { Container, Stack } from "@mui/material";
 import Presentation from "./components/Presentation";
 import Experience from "./components/experience/Experience";
+import Education from "./components/education/Education";
 import Projects from "./components/projects/Projects";
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
         <Presentation />
         <Projects />
         <Experience />
+        <Education />
       </Stack>
     </Container>
   );

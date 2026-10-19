@@ -4,7 +4,8 @@
     "label": "Navigation principale",
     "intro": "À propos",
     "projects": "Projets",
-    "experience": "Expérience"
+    "experience": "Expérience",
+    "education": "Formation"
   },
   "download": "Télécharger CV",
   "title": "Développement d'applications scalables.",
@@ -51,6 +52,23 @@
       "internRole": {
         "title": "NTT DATA Europe & LATAM - Stagiaire ingénieur logiciel",
         "description": "J'ai développé des processus ETL avec PL/SQL et créé des tableaux de bord métier avec Tableau et Qlik Sense."
+      }
+    }
+  },
+  "education": {
+    "title": "Formation",
+    "subtitle": "Parcours académique.",
+    "current": "En cours",
+    "items": {
+      "bachelors": {
+        "degree": "Licence en ingénierie logicielle",
+        "institution": "UMA - Université de Málaga",
+        "dates": "2019 – 2024"
+      },
+      "masters": {
+        "degree": "Master en DevOps et Cloud Computing",
+        "institution": "UNIR - Université internationale de La Rioja",
+        "dates": "2026 – Aujourd'hui"
       }
     }
   }

@@ -54,7 +54,7 @@ function Experience() {
       id="experience"
       aria-labelledby="experience-heading"
       className="motion-in"
-      sx={{ py: { xs: 4, md: 6 }, scrollMarginTop: "120px" }}
+      sx={{ scrollMarginTop: "120px" }}
     >
       <Typography
         id="experience-heading"

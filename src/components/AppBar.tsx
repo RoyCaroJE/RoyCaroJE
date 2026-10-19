@@ -40,6 +40,7 @@ export default function ButtonAppBar({ toggleTheme, isDark }: AppProps) {
     { href: "#intro", label: t("navigation.intro") },
     { href: "#projects", label: t("navigation.projects") },
     { href: "#experience", label: t("navigation.experience") },
+    { href: "#education", label: t("navigation.education") },
   ];
 
   return (

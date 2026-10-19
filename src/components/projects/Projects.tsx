@@ -51,7 +51,7 @@ function Projects() {
       id="projects"
       aria-labelledby="projects-heading"
       className="motion-in"
-      sx={{ py: { xs: 4, md: 6 }, scrollMarginTop: "120px" }}
+      sx={{ scrollMarginTop: "120px" }}
     >
       <Typography
         id="projects-heading"
