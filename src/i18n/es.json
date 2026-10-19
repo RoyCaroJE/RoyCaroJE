@@ -4,7 +4,8 @@
     "label": "Navegación principal",
     "intro": "Sobre mí",
     "projects": "Proyectos",
-    "experience": "Experiencia"
+    "experience": "Experiencia",
+    "education": "Formación"
   },
   "download": "Descargar CV",
   "title": "Desarrollando aplicaciones escalables.",
@@ -13,7 +14,7 @@
   "presentation_text": "Soy un ingeniero de software de Málaga, especializado en la creación de aplicaciones escalables con Java Spring Boot y React con TypeScript. Trabajo a lo largo de todo el ciclo de vida del desarrollo y disfruto de las arquitecturas limpias, el código mantenible y las herramientas modernas como Docker, Kubernetes, PostgreSQL, GitHub y GitHub Actions. Hablo con fluidez francés, español, portugués e inglés. Me desenvuelvo muy bien en equipos multiculturales y, sí, ¡llevo el sol de Málaga a las dailies! ☀️😄",
   "projects": {
     "title": "Proyectos",
-    "subtitle": "Una selección de proyectos en los que he trabajado.",
+    "subtitle": "Una selección de proyectos personales en los que he trabajado.",
     "viewProject": "Ver proyecto",
     "items": {
       "project1": {
@@ -51,6 +52,23 @@
       "internRole": {
         "title": "NTT DATA Europe & LATAM - Becario de Ingeniería de Software",
         "description": "Desarrollé procesos ETL con PL/SQL y creé cuadros de mando empresariales con Tableau y Qlik Sense."
+      }
+    }
+  },
+  "education": {
+    "title": "Formación",
+    "subtitle": "Trayectoria académica.",
+    "current": "Actual",
+    "items": {
+      "bachelors": {
+        "degree": "Grado en Ingeniería del Software",
+        "institution": "UMA - Universidad de Málaga",
+        "dates": "2019 – 2024"
+      },
+      "masters": {
+        "degree": "Máster en DevOps y Cloud Computing",
+        "institution": "UNIR - Universidad Internacional de La Rioja",
+        "dates": "2026 – Actualidad"
       }
     }
   }
