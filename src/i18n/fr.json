@@ -14,7 +14,7 @@
   "presentation_text": "Je suis ingénieur logiciel basé à Málaga, spécialisé dans le développement d'applications scalables avec Java Spring Boot et React TypeScript. J'interviens sur l'ensemble du cycle de vie du développement et j'apprécie les architectures propres, le code maintenable et les outils modernes tels que Docker, Kubernetes, PostgreSQL, GitHub et GitHub Actions. Je parle couramment le français, l'espagnol, le portugais et l'anglais. J'évolue avec aisance dans des équipes multiculturelles et, oui, j'apporte le soleil de Málaga aux dailies! ☀️😄",
   "projects": {
     "title": "Projets",
-    "subtitle": "Une sélection de projets sur lesquels j'ai travaillé.",
+    "subtitle": "Une sélection de projets personnels sur lesquels j'ai travaillé.",
     "viewProject": "Voir le projet",
     "items": {
       "project1": {

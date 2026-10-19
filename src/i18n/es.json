@@ -14,7 +14,7 @@
   "presentation_text": "Soy un ingeniero de software de Málaga, especializado en la creación de aplicaciones escalables con Java Spring Boot y React con TypeScript. Trabajo a lo largo de todo el ciclo de vida del desarrollo y disfruto de las arquitecturas limpias, el código mantenible y las herramientas modernas como Docker, Kubernetes, PostgreSQL, GitHub y GitHub Actions. Hablo con fluidez francés, español, portugués e inglés. Me desenvuelvo muy bien en equipos multiculturales y, sí, ¡llevo el sol de Málaga a las dailies! ☀️😄",
   "projects": {
     "title": "Proyectos",
-    "subtitle": "Una selección de proyectos en los que he trabajado.",
+    "subtitle": "Una selección de proyectos personales en los que he trabajado.",
     "viewProject": "Ver proyecto",
     "items": {
       "project1": {
